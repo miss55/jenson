@@ -1,4 +1,10 @@
-### php如何导出巨大数据excel表格
+---
+layout: post
+title: php如何导出巨大数据excel表格
+tags: php excel 生成器
+categories: common
+---
+
 导出excel主要有两个需要解决的，1占内存，2耗时
 #### 一、解决超时问题
   1. 通过任务形式在后台导出，然后前端提供导出下载链接

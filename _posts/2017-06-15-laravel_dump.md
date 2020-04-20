@@ -1,5 +1,12 @@
-### 将laravel的dd拎出来
+---
+layout: post
+title: 将laravel的dd拎出来
+tags: php laravel
+categories: common
+---
+
 > dd 其实最后是调用[symfony/var-dumper](https://github.com/symfony/var-dumper)中的CliDumper或者HtmlDumper
+
 步骤
 ###### 1. 添加依赖 ```s"symfony/var-dumper": "~3.3",```
 > 关于版本的话可以查看具体版本compose的依赖，看是否有限制

@@ -1,4 +1,10 @@
-#### sublime text 3使用
+---
+layout: post
+title: sublime text 3使用
+tags: sublime
+categories: common
+---
+
 ##### 一、插件篇:
 1、安装package control
   - 打开package control 的[安装页面](https://packagecontrol.io/installation) 
