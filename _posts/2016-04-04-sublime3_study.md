@@ -20,7 +20,7 @@
   - 配置:添加author
   ```json
     {
-      "jsdocs_extra_tags": ["@author song"] 
+      "jsdocs_extra_tags": ["@author jenson"] 
     }
   ```
 2.4、Ctag安装与配置：

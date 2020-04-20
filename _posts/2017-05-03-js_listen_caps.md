@@ -1,4 +1,9 @@
-### 监听pc大小写变化
+---
+layout: post
+title: 监听pc大小写变化
+tags: javscript
+categories: common
+---
 一般在用户输入密码时，想有个比较友好的提示
 > 查了api后，浏览器是没有提供接口说当前字符模式是大写状态还是小写状态。
 
