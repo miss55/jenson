@@ -8,7 +8,7 @@
 $(document).ready(function() {
     generateContent();
     // share();
-    gitment();
+    // gitment();
 });
 
 /**

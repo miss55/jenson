@@ -4,9 +4,11 @@ title: js解析json格式(像console.log打印的格式)
 tags: javscript json
 categories: common
 ---
-<!-- #### js解析json格式(像console.log打印的格式) -->
->console.log 控制台打印，可以友好的打印出有层次结构的json对象。pc端下屡试不爽。但如果在手机浏览器呢？alert可没有这个功能，所以自己也尝试写个函数来打印出层次结构清晰的json对象。
+
+> console.log 控制台打印，可以友好的打印出有层次结构的json对象。pc端下屡试不爽。但如果在手机浏览器呢？alert可没有这个功能，所以自己也尝试写个函数来打印出层次结构清晰的json对象。
+
 - 代码
+
 ```javascript
   /**
  * 解析对象成字符串

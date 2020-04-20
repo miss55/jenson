@@ -30,14 +30,13 @@ categories: common
     }
   ```
 2.4、Ctag安装与配置：
+- 打开命令框（快捷键 Ctrl+Shift+p）：输入 PCI 跳到控制包安装。然后查找 CTag，安装。
 
-打开命令框（快捷键 Ctrl+Shift+p）：输入 PCI 跳到控制包安装。然后查找 CTag，安装。
+- 下载ctags58.zip，解压，然后将路径放入环境变量中。 D:\\ctags58
 
-下载ctags58.zip，解压，然后将路径放入环境变量中。 D:\\ctags58
+- 重启sublime text
 
-重启sublime text
-
-在侧左栏的工程/项目文件上右键会看到CTags: Rebuild Tags菜单项。点击CTags: Rebuild Tags 即可生成
+- 在侧左栏的工程/项目文件上右键会看到CTags: Rebuild Tags菜单项。点击CTags: Rebuild Tags 即可生成
 
 6、Sublimelinter :
   - 首先安装sublimelinter,然后安装sublimelinter-php。
