@@ -20,7 +20,7 @@ categories: common
     |```--specpath DIR```|用于存储生成的规范文件的文件夹（默认：当前目录）|
     |```-n NAME, --name NAME```|应用程序名称|
 
-- <img src="/static/img/pyinstall.jpg">
+- <img src="/jenson/static/img/pyinstall.jpg">
 
 - 参考
   - https://zhuanlan.zhihu.com/p/38659588
