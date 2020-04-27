@@ -162,3 +162,7 @@
     -ms-user-select: none;
     user-select: none;
 }
+
+.descript {
+    text-indent: 2em;
+}
