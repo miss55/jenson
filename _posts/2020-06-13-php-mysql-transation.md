@@ -22,6 +22,7 @@ categories: common
       }
     }
   ```
+
 - 经过我的精简，我将事务封装成一个类
   ```php
     class Transation {
@@ -50,7 +51,7 @@ categories: common
         }
       }
     }
-    那么真正的业务中
+    # 那么真正的业务中
     function doIt() {
       $transation = new Transation;
       try{
