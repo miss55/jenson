@@ -422,11 +422,8 @@ categories: other
     pm.variables.replaceIn('{{$randomFirstName}}');
 ```
 #### 值列表
-| 变量名 | 变量名 | 描述 | 例子 
------- | -------- | ------ 
-$guid | 一个uuid-v4风格GUID | "611c2e81-2ccb-42d8-9ddc-2d0bfa65c1b4" 
-$timestamp | 当前UNIX时间戳（以秒为单位） | 1562757107 变量名 | 描述 | 例子 
------- | -------- | ------ 
+变量名 | 描述 | 例子 
+------------- | ------------- | ------------- 
 $guid | 一个uuid-v4风格GUID | "611c2e81-2ccb-42d8-9ddc-2d0bfa65c1b4" 
 $timestamp | 当前UNIX时间戳（以秒为单位） | 1562757107 
 $isoTimestamp | 当前ISO时间戳（UTC为零） | 2020-06-09T21:10:36.177Z 
