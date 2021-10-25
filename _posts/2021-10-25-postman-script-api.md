@@ -422,78 +422,82 @@ categories: other
     pm.variables.replaceIn('{{$randomFirstName}}');
 ```
 #### 值列表
-| 变量名 | 描述 | 例子 |
-| - | - | - |
-| $guid | 一个uuid-v4风格GUID | "611c2e81-2ccb-42d8-9ddc-2d0bfa65c1b4" |
-| $timestamp | 当前UNIX时间戳（以秒为单位） | 1562757107 |
-| $isoTimestamp | 当前ISO时间戳（UTC为零） | 2020-06-09T21:10:36.177Z |
-| $randomUUID | 随机的36个字符的UUID | "6929bb52-3ab2-448a-9796-d6480ecad36b" |
-| $randomAlphaNumeric | 随机字母数字字符 | 6，"y"，"z" |
-| $randomBoolean | 随机布尔值（真/假） | true，false，false，true |
-| $randomInt | 1至1000之间的随机整数 | 802，494，200 |
-| $randomColor | 随机颜色 | "red"，"fuchsia"，"grey" |
-| $randomHexColor | 随机十六进制值 | "#47594a"，"#431e48"，"#106f21" |
-| $randomAbbreviation | 随机缩写 | SQL，PCI，JSON |
-| $randomIP | 随机的IPv4地址 | 241.102.234.100， 216.7.27.38 |
-| $randomIPV6 | 随机的IPv6地址 | dbe2:7ae6:119b:c161:1560:6dda:3a9b:90a9 |
-| $randomMACAddress | 随机MAC地址 | 33:d4:68:5f:b4:c7， 1f:6e:db:3d:ed:fa |
-| $randomPassword | 随机的15个字符的字母数字密码 | t9iXe7COoDKv8k3， QAzNFQtvR9cg2rq |
-| $randomLocale | 随机的两个字母的语言代码（ISO 639-1） | "ny"，"sr"，"si" |
-| $randomUserAgent | 随机用户代理 | Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.9.8; rv:15.6) Gecko/20100101 Firefox/15.6.6
-Opera/10.27 (Windows NT 5.3; U; AB Presto/2.9.177 Version/10.00) |
-| $randomProtocol | 随机互联网协议 | "http"， "https" |
-| $randomSemver | 随机语义版本号 | 7.0.5，2.5.8，6.4.9 |
-| $randomFirstName | 随机名字 | Ethan，Chandler，Megane |
-| $randomLastName | 随机姓氏 | Schaden，Schneider，Willms |
-| $randomFullName | 随机的名字和姓氏 | Connie Runolfsdottir，Sylvan Fay，Jonathon Kunze |
-| $randomNamePrefix | 随机名称前缀 | Dr.，Ms.，Mr. |
-| $randomNameSuffix | 随机名称后缀 | I，MD，DDS |
-| $randomCountryCode | 随机的2个字母的国家/地区代码（ISO 3166-1 alpha-2） | CV，MD，TD |
-| $randomLatitude | 随机纬度坐标 | 55.2099，27.3644，-84.7514 |
-| $randomLongitude | 随机经度坐标 | 40.6609，171.7139，-159.9757 |
-| $randomImage | 随机图像 | http://lorempixel.com/640/480/technics |
-| $randomAvatarImage | 随机头像 | https://s3.amazonaws.com/uifaces/faces/twitter/johnsmithagency/128.jpg |
-| $randomImageUrl | 随机图片的网址 | http://lorempixel.com/640/480 |
-| $randomAbstractImage | 随机抽象图片的网址 | http://lorempixel.com/640/480/abstract |
-| $randomAnimalsImage | 随机动物图片的网址 | http://lorempixel.com/640/480/animals |
-| $randomBusinessImage | 随机库存企业图片的网址 | http://lorempixel.com/640/480/business |
-| $randomCatsImage | 随机猫图像的URL | http://lorempixel.com/640/480/cats |
-| $randomCityImage | 随机城市图片的网址 | http://lorempixel.com/640/480/city |
-| $randomFoodImage | 随机食物图片的网址 | http://lorempixel.com/640/480/food |
-| $randomNightlifeImage | 随机夜生活图片的网址 | http://lorempixel.com/640/480/nightlife |
-| $randomFashionImage | 随机时尚图片的网址 | http://lorempixel.com/640/480/fashion |
-| $randomPeopleImage | 一个人的随机图像的URL | http://lorempixel.com/640/480/people |
-| $randomNatureImag | 随机自然图像的URL | http://lorempixel.com/640/480/nature |
-| $randomSportsImage | 随机运动图像的URL | http://lorempixel.com/640/480/sports |
-| $randomTechnicsImage | 随机技术图片的网址 | http://lorempixel.com/640/480/technics |
-| $randomTransportImage | 随机交通图片的网址 | http://lorempixel.com/640/480/transport |
-| $randomImageDataUri | 随机图像数据URI | data:image/svg+xml;charset=UTF-8,%3Csvg+xmlns%3D%22http%3A%2F%2Fwww...... |
-| $randomCurrencyCode | 随机的3个字母的货币代码（ISO-4217） | CDF，ZMK，GNF |
-| $randomBitcoin | 随机比特币地址 | 3VB8JGT7Y4Z63U68KGGKDXMLLH5 |
-| $randomCompanyName | 随机公司名称 | Johns - Kassulke， Grady LLC |
-| $randomBsNoun | | interfaces |
-| $randomDatabaseType | 随机数据库类型 | tinyint， text |
-| $randomDatabaseColumn | 随机数据库列名称 | updatedAt，token，group |
-| $randomDatabaseCollation | 随机数据库排序 | cp1250_bin，utf8_general_ci，cp1250_general_ci |
-| $randomDatabaseEngine | 随机数据库引擎 | MyISAM，InnoDB，Memory |
-| $randomDateFuture | 未来的随机日期时间 | Tue Mar 17 2020 13:11:50 GMT+0530 (India Standard Time) |
-| $randomDatePast | 随机过去的日期时间 | Sat Mar 02 2019 09:09:26 GMT+0530 (India Standard Time) |
-| $randomDateRecent | 最近的随机日期时间 | Tue Jul 09 2019 23:12:37 GMT+0530 (India Standard Time) |
-| $randomWeekday | 随机工作日 | Thursday，Friday，Monday |
-| $randomMonth | 随机月份 | February，May，January |
-| $randomDomainName | 随机域名 | gracie.biz，armando.biz，trevor.info |
-| $randomDomainSuffix | 随机域后缀 | org，net，com |
-| $randomDomainWord | 随机的不合格域名 | gwen，jaden，donnell |
-| $randomEmail | 随机电子邮件地址 | Pablo62@gmail.com，Ruthe42@hotmail.com，Iva.Kovacek61@hotmail.com |
-| $randomExampleEmail | 来自“示例”域的随机电子邮件地址 | Talon28@example.com，Quinten_Kerluke45@example.net，Casey81@example.net |
-| $randomUserName | 随机用户名 | Jarrell.Gutkowski，Lottie.Smitham24，Alia99 |
-| $randomUrl | 随机网址 | https://anais.net，https://tristin.net，http://jakob.name |
-| $randomFileName | 随机文件名（包括不常见的扩展名） | neural_sri_lanka_rupee_gloves.gdoc |
-| $randomFileType | 随机文件类型（包括不常见的文件类型） | model，application，video |
-| $randomFileExt | 随机文件扩展名（包括不常见的扩展名） | war，book，fsc |
-| $randomCommonFileName | 随机文件名 | well_modulated.mpg4 |
-| $randomCommonFileType | 随机的常见文件类型 | application， audio |
-| $randomCommonFileExt | 随机的通用文件扩展名 | m2v，wav，png |
-| $randomFilePath | 随机文件路径 | /home/programming_chicken.cpio |
-| $randomDirectoryPath | 随机目录路径 | /usr/bin，/root，/usr/local/bin |
-| $randomMimeType | 随机MIME类型 | audio/vnd.vmx.cvsd |
+<table align="center">
+  <tr>
+    <th align="center">变量名</th>
+    <th align="center">描述</th>
+    <th align="center">例子</th>
+  </tr>
+  <tr><td> $guid </td><td> 一个uuid-v4风格GUI</td><td> | "611c2e81-2ccb-42d8-9ddc-2d0bfa65c1b4" </td></tr>
+<tr><td> $timestamp </td><td> 当前UNIX时间戳（以秒为单位） </td><td> 1562757107 </td></tr>
+<tr><td> $isoTimestamp </td><td> 当前ISO时间戳（UTC为零） </td><td> 2020-06-09T21:10:36.177Z </td></tr>
+<tr><td> $randomUUID </td><td> 随机的36个字符的UUID </td><td> "6929bb52-3ab2-448a-9796-d6480ecad36b" </td></tr>
+<tr><td> $randomAlphaNumeric </td><td> 随机字母数字字符 </td><td> 6, "y", "z" </td></tr>
+<tr><td> $randomBoolean </td><td> 随机布尔值（真/假</td><td> | true, false, false, true </td></tr>
+<tr><td> $randomInt </td><td> 1至1000之间的随机整数 </td><td> 802, 494, 200 </td></tr>
+<tr><td> $randomColor </td><td> 随机颜色 </td><td> "red", "fuchsia", "grey" </td></tr>
+<tr><td> $randomHexColor </td><td> 随机十六进制值 </td><td> "#47594a", "#431e48", "#106f21" </td></tr>
+<tr><td> $randomAbbreviation </td><td> 随机缩写 </td><td> SQL, PCI, JSON </td></tr>
+<tr><td> $randomIP </td><td> 随机的IPv4地址 </td><td> 241.102.234.100,  216.7.27.38 </td></tr>
+<tr><td> $randomIPV6 </td><td> 随机的IPv6地址 </td><td> dbe2:7ae6:119b:c161:1560:6dda:3a9b:90a9 </td></tr>
+<tr><td> $randomMACAddress </td><td> 随机MAC地址 </td><td> 33:d4:68:5f:b4:c7,  1f:6e:db:3d:ed:fa </td></tr>
+<tr><td> $randomPassword </td><td> 随机的15个字符的字母数字密码 </td><td> t9iXe7COoDKv8k3,  QAzNFQtvR9cg2rq </td></tr>
+<tr><td> $randomLocale </td><td> 随机的两个字母的语言代码（ISO 63</td><td>-1） | "ny", "sr", "si" </td></tr>
+<tr><td> $randomUserAgent </td><td> 随机用户代理 </td><td> Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.9.8; rv:15.6) Gecko/20100101 Firefox/15.6.6 Opera/10.27 (Windows NT 5.3; U; AB Presto/2.9.177 Version/10.00) </td></tr>
+<tr><td> $randomProtocol </td><td> 随机互联网协议 </td><td> "http",  "https" </td></tr>
+<tr><td> $randomSemver </td><td> 随机语义版本号 </td><td> 7.0.5, 2.5.8, 6.4.9 </td></tr>
+<tr><td> $randomFirstName </td><td> 随机名字 </td><td> Ethan, Chandler, Megane </td></tr>
+<tr><td> $randomLastName </td><td> 随机姓氏 </td><td> Schaden, Schneider, Willms </td></tr>
+<tr><td> $randomFullName </td><td> 随机的名字和姓氏 </td><td> Connie Runolfsdottir, Sylvan Fay, Jonathon Kunze </td></tr>
+<tr><td> $randomNamePrefix </td><td> 随机名称前缀 </td><td> Dr., Ms., Mr. </td></tr>
+<tr><td> $randomNameSuffix </td><td> 随机名称后缀 </td><td> I, MD, DDS </td></tr>
+<tr><td> $randomCountryCode </td><td> 随机的2个字母的国家/地区代码（IS</td><td> 3166-1 alpha-2） | CV, MD, TD </td></tr>
+<tr><td> $randomLatitude </td><td> 随机纬度坐标 </td><td> 55.2099, 27.3644, -84.7514 </td></tr>
+<tr><td> $randomLongitude </td><td> 随机经度坐标 </td><td> 40.6609, 171.7139, -159.9757 </td></tr>
+<tr><td> $randomImage </td><td> 随机图像 </td><td> http://lorempixel.com/640/480/technics </td></tr>
+<tr><td> $randomAvatarImage </td><td> 随机头像 </td><td> https://s3.amazonaws.com/uifaces/faces/twitter/johnsmithagency/128.jpg </td></tr>
+<tr><td> $randomImageUrl </td><td> 随机图片的网址 </td><td> http://lorempixel.com/640/480 </td></tr>
+<tr><td> $randomAbstractImage </td><td> 随机抽象图片的网址 </td><td> http://lorempixel.com/640/480/abstract </td></tr>
+<tr><td> $randomAnimalsImage </td><td> 随机动物图片的网址 </td><td> http://lorempixel.com/640/480/animals </td></tr>
+<tr><td> $randomBusinessImage </td><td> 随机库存企业图片的网址 </td><td> http://lorempixel.com/640/480/business </td></tr>
+<tr><td> $randomCatsImage </td><td> 随机猫图像的URL </td><td> http://lorempixel.com/640/480/cats </td></tr>
+<tr><td> $randomCityImage </td><td> 随机城市图片的网址 </td><td> http://lorempixel.com/640/480/city </td></tr>
+<tr><td> $randomFoodImage </td><td> 随机食物图片的网址 </td><td> http://lorempixel.com/640/480/food </td></tr>
+<tr><td> $randomNightlifeImage </td><td> 随机夜生活图片的网址 </td><td> http://lorempixel.com/640/480/nightlife </td></tr>
+<tr><td> $randomFashionImage </td><td> 随机时尚图片的网址 </td><td> http://lorempixel.com/640/480/fashion </td></tr>
+<tr><td> $randomPeopleImage </td><td> 一个人的随机图像的URL </td><td> http://lorempixel.com/640/480/people </td></tr>
+<tr><td> $randomNatureImag </td><td> 随机自然图像的URL </td><td> http://lorempixel.com/640/480/nature </td></tr>
+<tr><td> $randomSportsImage </td><td> 随机运动图像的URL </td><td> http://lorempixel.com/640/480/sports </td></tr>
+<tr><td> $randomTechnicsImage </td><td> 随机技术图片的网址 </td><td> http://lorempixel.com/640/480/technics </td></tr>
+<tr><td> $randomTransportImage </td><td> 随机交通图片的网址 </td><td> http://lorempixel.com/640/480/transport </td></tr>
+<tr><td> $randomImageDataUri </td><td> 随机图像数据URI </td><td> data:image/svg+xml;charset=UTF-8,%3Csvg+xmlns%3D%22http%3A%2F%2Fwww...... </td></tr>
+<tr><td> $randomCurrencyCode </td><td> 随机的3个字母的货币代码（ISO-4217</td><td> | CDF, ZMK, GNF </td></tr>
+<tr><td> $randomBitcoin </td><td> 随机比特币地址 </td><td> 3VB8JGT7Y4Z63U68KGGKDXMLLH5 </td></tr>
+<tr><td> $randomCompanyName </td><td> 随机公司名称 </td><td> Johns - Kassulke,  Grady LLC </td></tr>
+<tr><td> $randomBsNoun </td><td> | interface</td><td> </td></tr>
+<tr><td> $randomDatabaseType </td><td> 随机数据库类型 </td><td> tinyint,  text </td></tr>
+<tr><td> $randomDatabaseColumn </td><td> 随机数据库列名称 </td><td> updatedAt, token, group </td></tr>
+<tr><td> $randomDatabaseCollation </td><td> 随机数据库排序 </td><td> cp1250_bin, utf8_general_ci, cp1250_general_ci </td></tr>
+<tr><td> $randomDatabaseEngine </td><td> 随机数据库引擎 </td><td> MyISAM, InnoDB, Memory </td></tr>
+<tr><td> $randomDateFuture </td><td> 未来的随机日期时间 </td><td> Tue Mar 17 2020 13:11:50 GMT+0530 (India Standard Time) </td></tr>
+<tr><td> $randomDatePast </td><td> 随机过去的日期时间 </td><td> Sat Mar 02 2019 09:09:26 GMT+0530 (India Standard Time) </td></tr>
+<tr><td> $randomDateRecent </td><td> 最近的随机日期时间 </td><td> Tue Jul 09 2019 23:12:37 GMT+0530 (India Standard Time) </td></tr>
+<tr><td> $randomWeekday </td><td> 随机工作日 </td><td> Thursday, Friday, Monday </td></tr>
+<tr><td> $randomMonth </td><td> 随机月份 </td><td> February, May, January </td></tr>
+<tr><td> $randomDomainName </td><td> 随机域名 </td><td> gracie.biz, armando.biz, trevor.info </td></tr>
+<tr><td> $randomDomainSuffix </td><td> 随机域后缀 </td><td> org, net, com </td></tr>
+<tr><td> $randomDomainWord </td><td> 随机的不合格域名 </td><td> gwen, jaden, donnell </td></tr>
+<tr><td> $randomEmail </td><td> 随机电子邮件地址 </td><td> Pablo62@gmail.com, Ruthe42@hotmail.com, Iva.Kovacek61@hotmail.com </td></tr>
+<tr><td> $randomExampleEmail </td><td> 来自“示例”域的随机电子邮件地址 </td><td> Talon28@example.com, Quinten_Kerluke45@example.net, Casey81@example.net </td></tr>
+<tr><td> $randomUserName </td><td> 随机用户名 </td><td> Jarrell.Gutkowski, Lottie.Smitham24, Alia99 </td></tr>
+<tr><td> $randomUrl </td><td> 随机网址 </td><td> https://anais.net, https://tristin.net, http://jakob.name </td></tr>
+<tr><td> $randomFileName </td><td> 随机文件名（包括不常见的扩展名） </td><td> neural_sri_lanka_rupee_gloves.gdoc </td></tr>
+<tr><td> $randomFileType </td><td> 随机文件类型（包括不常见的文件类型） </td><td> model, application, video </td></tr>
+<tr><td> $randomFileExt </td><td> 随机文件扩展名（包括不常见的扩展名） </td><td> war, book, fsc </td></tr>
+<tr><td> $randomCommonFileName </td><td> 随机文件名 </td><td> well_modulated.mpg4 </td></tr>
+<tr><td> $randomCommonFileType </td><td> 随机的常见文件类型 </td><td> application,  audio </td></tr>
+<tr><td> $randomCommonFileExt </td><td> 随机的通用文件扩展名 </td><td> m2v, wav, png </td></tr>
+<tr><td> $randomFilePath </td><td> 随机文件路径 </td><td> /home/programming_chicken.cpio </td></tr>
+<tr><td> $randomDirectoryPath </td><td> 随机目录路径 </td><td> /usr/bin, /root, /usr/local/bin </td></tr>
+<tr><td> $randomMimeType </td><td> 随机MIME类型 </td><td> audio/vnd.vmx.cvsd </td></tr>
+</table>
