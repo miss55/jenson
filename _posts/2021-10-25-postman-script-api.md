@@ -423,7 +423,7 @@ categories: other
 ```
 #### 值列表
 | 变量名 | 描述 | 例子 |
-| - | - | - |
+| ----- | ----- | ----- |
 | $guid | 一个uuid-v4风格GUID | "611c2e81-2ccb-42d8-9ddc-2d0bfa65c1b4" |
 | $timestamp | 当前UNIX时间戳（以秒为单位） | 1562757107 |
 | $isoTimestamp | 当前ISO时间戳（UTC为零） | 2020-06-09T21:10:36.177Z |
@@ -439,8 +439,7 @@ categories: other
 | $randomMACAddress | 随机MAC地址 | 33:d4:68:5f:b4:c7， 1f:6e:db:3d:ed:fa |
 | $randomPassword | 随机的15个字符的字母数字密码 | t9iXe7COoDKv8k3， QAzNFQtvR9cg2rq |
 | $randomLocale | 随机的两个字母的语言代码（ISO 639-1） | "ny"，"sr"，"si" |
-| $randomUserAgent | 随机用户代理 | Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.9.8; rv:15.6) Gecko/20100101 Firefox/15.6.6
-Opera/10.27 (Windows NT 5.3; U; AB Presto/2.9.177 Version/10.00) |
+| $randomUserAgent | 随机用户代理 | Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.9.8; rv:15.6) Gecko/20100101 Firefox/15.6.6 Opera/10.27 (Windows NT 5.3; U; AB Presto/2.9.177 Version/10.00) |
 | $randomProtocol | 随机互联网协议 | "http"， "https" |
 | $randomSemver | 随机语义版本号 | 7.0.5，2.5.8，6.4.9 |
 | $randomFirstName | 随机名字 | Ethan，Chandler，Megane |
