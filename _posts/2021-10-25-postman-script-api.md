@@ -3,10 +3,6 @@ layout: post
 title: 
 tags: framework
 categories: other
-markdown: redcarpet
-redcarpet:
-  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]
-
 ---
 >
 
