@@ -5,6 +5,8 @@ tags: windows10 wsl docker
 categories: wsl
 ---
 > 
+
+
 ### 0. [wsl 安装](https://docs.microsoft.com/en-us/windows/wsl/install)
 ### 1. 安装ubuntu 20.4
 ### 2. 迁移虚拟硬盘
@@ -24,7 +26,7 @@ categories: wsl
     ```
 1. 注销原有的虚拟机  wsl --unregister <DistroName>
     ```bat
-      wsl --unregister Unbuntu-20.04
+      wsl --unregister Ubuntu-20.04
     ```
 1. 导入虚拟机至新位置 wsl --import <DistroName> <PathToDistroNewDirectory> <PathToTarArchive>
     ```bat
@@ -42,24 +44,36 @@ categories: wsl
     ```shell
       vim /etc/apt/sources.list
     ```
-1. 替换```http://archive.ubuntu.com/``` 为 ```hmirrors.aliyun.com```
+1. 替换```http://archive.ubuntu.com/``` 为 ```mirrors.aliyun.com```
     ```shell
-      :%s/http:\/\/archive.ubuntu.com/http:\/\/hmirrors.aliyun.com/g
+      # 冒号 然后粘贴
+      %s/http:\/\/archive.ubuntu.com/http:\/\/mirrors.aliyun.com/g
     ```
-### 5. 安装[docker-ce](https://mirrors.tuna.tsinghua.edu.cn/help/docker-ce/)
-1. [另一版参考](https://www.codingwithcalvin.net/installing-docker-and-docker-compose-in-wsl2ubuntu-on-windows/)
+### 5. 安装[docker-ce](https://developer.aliyun.com/mirror/docker-ce?spm=a2c6h.13651102.0.0.48dc1b11QTUriI)
+1. [另一版参考](https://mirrors.tuna.tsinghua.edu.cn/help/docker-ce/)
 1. 卸载旧版本(如果有)
     ```shell
       sudo apt-get remove docker docker-engine docker.io
     ```
-1. 安装依赖
-    ```
-      sudo apt-get install apt-transport-https ca-certificates curl gnupg2 software-properties-common
-    ```
-1. 信任Docker的GPG公钥
+1. 安装必要的一些系统工具
     ```shell
-      curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+      sudo apt-get update
+      sudo apt-get -y install apt-transport-https ca-certificates curl software-properties-common
     ```
+1. 安装GPG证书
+    ```shell
+      curl -fsSL https://mirrors.aliyun.com/docker-ce/linux/ubuntu/gpg | sudo apt-key add -
+    ```
+1. 写入软件源信息
+    ```shell
+      sudo add-apt-repository "deb [arch=amd64] https://mirrors.aliyun.com/docker-ce/linux/ubuntu $(lsb_release -cs) stable"
+    ```
+1. 更新并安装Docker-CE
+    ```shell
+      sudo apt-get -y update
+      sudo apt-get -y install docker-ce
+    ```
+
 1. 如果是其他类型cpu [请直接看](https://mirrors.tuna.tsinghua.edu.cn/help/docker-ce/)
 1. 更新
     ```shell
@@ -82,6 +96,15 @@ categories: wsl
         EOF
         sudo systemctl daemon-reload
         sudo systemctl restart docker
+    ```
+### [docker compose](https://docs.docker.com/compose/install/)
+1. 下载稳定版本包
+    ```shell
+      sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+    ```
+1. 添加可执行权限
+    ```shell
+      sudo chmod +x /usr/local/bin/docker-compose
     ```
 ### 其他
 1. [window下工具](https://nickjanetakis.com/blog/a-linux-dev-environment-on-windows-with-wsl-2-docker-desktop-and-more)
