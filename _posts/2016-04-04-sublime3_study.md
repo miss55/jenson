@@ -2,7 +2,7 @@
 layout: post
 title: sublime text 3使用
 tags: sublime
-categories: common
+categories: tool
 ---
 
 ##### 一、插件篇:

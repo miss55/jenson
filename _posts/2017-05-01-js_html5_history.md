@@ -1,8 +1,8 @@
 ---
 layout: post
 title: 关于html5 history接口的一个小实例
-tags: javscript html5
-categories: common
+tags: javascript html5
+categories: frontend
 ---
 
 > 场景:当你在app里浏览图片时，点击图片，改图片会放大，点击手机的返回键的时候会自动关闭。如果用网页来实现，应该怎么实现！

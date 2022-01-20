@@ -2,7 +2,7 @@
 layout: post
 title: yii2 如何优雅的将Pagination集成到model中去
 tags: php yii2  
-categories: common
+categories: backend
 ---
 
 - 正常情况下我们都需要, 而且其他model都需要重复,代码冗余太多，而且我也懒得记

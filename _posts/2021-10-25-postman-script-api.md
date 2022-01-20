@@ -2,7 +2,7 @@
 layout: post
 title: 
 tags: 工具 postman
-categories: postman
+categories: tool
 ---
 
 > 转载：[作者：adongs 标题：Postman Pre-request Script (postman脚本) 编写](https://adongs.com/articles/2020/08/10/1597044862445.html)

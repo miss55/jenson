@@ -2,7 +2,7 @@
 layout: post
 title: php如何导出巨大数据excel表格
 tags: php excel 生成器
-categories: common
+categories: backend
 ---
 
 导出excel主要有两个需要解决的，1占内存，2耗时

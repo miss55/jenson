@@ -2,7 +2,7 @@
 layout: post
 title: php实现redis lock
 tags: php redis-lock
-categories: php
+categories: backend
 ---
 > 
 

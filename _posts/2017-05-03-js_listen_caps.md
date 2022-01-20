@@ -1,8 +1,8 @@
 ---
 layout: post
 title: 监听pc大小写变化
-tags: javscript
-categories: common
+tags: javascript
+categories: frontend
 ---
 
 一般在用户输入密码时，想有个比较友好的提示

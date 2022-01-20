@@ -2,7 +2,7 @@
 layout: post
 title: python打包成exe可执行文件
 tags: python pyinstaller
-categories: common
+categories: backend
 ---
 
 > 由于需要将脚本给小白用，需要打包成exe直接执行

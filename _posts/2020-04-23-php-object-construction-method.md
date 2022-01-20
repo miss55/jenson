@@ -2,7 +2,7 @@
 layout: post
 title: php构造方法和析构方法
 tags: php
-categories: common
+categories: backend
 ---
 
 ## 定义

@@ -2,7 +2,7 @@
 layout: post
 title: php下载大文件 不用readfile()
 tags: php SplFileObject file_download 
-categories: common
+categories: backend
 ---
 
 使用readfile下载文件时，文件越大需要的内存就越高，如果导出一个100MB的文件，则需要100MB的内存

@@ -2,7 +2,7 @@
 layout: post
 title: 框架选择
 tags: framework
-categories: other
+categories: framework
 ---
 > 
 

@@ -2,7 +2,7 @@
 layout: post
 title: window10 wsl docker
 tags: windows10 wsl docker
-categories: wsl
+categories: tool
 ---
 
 

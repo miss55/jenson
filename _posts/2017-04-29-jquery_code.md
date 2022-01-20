@@ -1,11 +1,11 @@
 ---
 layout: post
 title: jquery 源码
-tags: javscript jquery
-categories: common
+tags: javascript jquery
+categories: frontend
 ---
 
-# 一、javscript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。也是一种函数式语言。
+# 一、javascript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。也是一种函数式语言。
 - 特点：
   1. 基于对象
   2. 弱类型

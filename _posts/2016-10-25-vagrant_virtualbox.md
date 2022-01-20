@@ -1,8 +1,8 @@
 ---
 layout: post
 title: vagrant+virtualBox搭建自己的开发环境
-tags: sublime
-categories: common
+tags: vagrant virtualBox
+categories: tool
 ---
 
 ## 1、为什么选择vagrant+virtualBox

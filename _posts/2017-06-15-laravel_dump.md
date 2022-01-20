@@ -2,7 +2,7 @@
 layout: post
 title: 将laravel的dd拎出来
 tags: php laravel
-categories: common
+categories: backend
 ---
 
 > dd 其实最后是调用[symfony/var-dumper](https://github.com/symfony/var-dumper)中的CliDumper或者HtmlDumper
