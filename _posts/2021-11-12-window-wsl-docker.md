@@ -115,3 +115,10 @@ categories: tool
     ```shell
       code .
     ```
+1. code: command not found
+    - 解决方式：找到window下code路径，改成如下： ``` /mnt/c/Users/{$User}/AppData/Local/Programs/Microsoft VS Code/bin/code ```
+    - ``` vim ~/.bashrc ```
+    - ``` alias code='"/mnt/c/Users/{$User}/AppData/Local/Programs/Microsoft VS Code/bin/code"' ```
+1. code: 46: cannot create /tmp/remote-wsl-loc.txt: Permission denied
+    - 解决方式：直接给777即可
+    - ``` sudo chmod 777 /tmp/remote-wsl-loc.txt ```
