@@ -7,16 +7,18 @@ categories: tool
 
 # docker 构建node
 ## 创建Dockerfile
-```
+```Dockerfile
 ARG NODE_VERSION
 FROM node:${NODE_VERSION}
 WORKDIR /usr/src/app
 
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories
+
 RUN apk update && \
 apk add --update git && \
 apk add --update openssh
 
+RUN apk add --no-cache python2 python2-dev make g++
 ```
 
 
@@ -111,14 +113,15 @@ docker run -it --rm --name waf \
     - 封装成脚本
         ```shell
           # !/bin/bash
-
+          CURRENT_DIR_NAME=`basename $PWD`
+          
           CMD=""
           for i in "$*"; do
               CMD="$CMD $i"
           done
           #echo $CMD
-          CMD="grep md.local.com /etc/hosts || echo 172.19.219.230  md.local.com >> /etc/hosts ;$CMD"
-          docker run -it --rm --name mid-front \
+          #CMD="grep md.local.com /etc/hosts || echo 172.19.219.230  md.local.com >> /etc/hosts ;$CMD"
+          docker run -it --rm --name $CURRENT_DIR_NAME \
             -v "$PWD":/usr/src/app \
             -w /usr/src/app \
             -p 9527:9527 \
