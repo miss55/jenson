@@ -112,24 +112,59 @@ docker run -it --rm --name waf \
         ```
     - 封装成脚本
         ```shell
-          # !/bin/bash
+          #!/bin/bash
           CURRENT_DIR_NAME=`basename $PWD`
-          
+          echo $CURRENT_DIR_NAME
+
           CMD=""
           for i in "$*"; do
               CMD="$CMD $i"
           done
+
+          if [ -e .env.development ]; then
+            PORT_RESULT=`cat .env.development | grep port`
+          fi
+
+          if [ `echo "${PORT_RESULT}" | grep "#"` ]; then
+            PORT_RESULT=""
+          fi
+          if [ -z "${PORT_RESULT}" ] && [ -e .env.development ]; then
+            PORT_RESULT=`cat .env.development | grep PORT`
+          fi
+          if [ `echo "${PORT_RESULT}" | grep "#"` ]; then
+            PORT_RESULT=""
+          fi
+          if [ -z "${PORT_RESULT}" ] && [ -e .env ];then
+            PORT_RESULT=`cat .env | grep port`
+          fi
+          if [ `echo "${PORT_RESULT}" | grep "#"` ]; then
+            PORT_RESULT=""
+          fi
+          if [ -z "${PORT_RESULT}" ] && [ -e .env ];then
+            PORT_RESULT=`cat .env | grep PORT`
+          fi
+          if [ `echo "${PORT_RESULT}" | grep "#"` ]; then
+            PORT_RESULT=""
+          fi
+
+          PORT=3000
+          if [ "$PORT_RESULT" ]; then
+            PORT="$(echo $PORT_RESULT | cut -d '=' -f 2)"
+          fi
+          echo $PORT
           #echo $CMD
           #CMD="grep md.local.com /etc/hosts || echo 172.19.219.230  md.local.com >> /etc/hosts ;$CMD"
           docker run -it --rm --name $CURRENT_DIR_NAME \
             -v "$PWD":/usr/src/app \
             -w /usr/src/app \
-            -p 9527:9527 \
-            wax/node-14.18 \
+            -p ${PORT}:${PORT} \
+            jenson/node-14.18 \
             /bin/sh -c "$CMD"
 
+          # in env react port=
+          # in env vue PORT=
           # sh dnode.sh npm run dev
-        ```
+      ```
 
 ### node 一些问题
 - ```docker run -it --rm  --name my-node-app -v "$PWD":/usr/src/app  node:14-alpine3.12 /bin/sh```
