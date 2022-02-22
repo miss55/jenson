@@ -121,48 +121,49 @@ docker run -it --rm --name waf \
               CMD="$CMD $i"
           done
 
-          if [ -e .env.development ]; then
-            PORT_RESULT=`cat .env.development | grep port`
+
+          PORT_SET=""
+          RESULT=$(echo $CMD | grep -E "npm run dev|npm start|yarn start|yarn run dev")
+          if [ -n "$RESULT" ];then
+              IS_REACT=`cat package.json|grep '"react":'`
+              PORT_FLAG=$([ -n "IS_REACT" ] && echo "PORT=" || echo "port=")
+              PORT=""
+
+              if [ -e .env.development ]; then
+                PORT_RESULT=`cat .env.development | grep -E "port|PORT"`
+              fi
+              if [ `echo "${PORT_RESULT}" | grep "#"` ]; then
+                PORT_RESULT=""
+              fi
+              if [ -z "${PORT_RESULT}" ] && [ -e .env ];then
+                PORT_RESULT=`cat .env | grep -E "port|PORT"`
+              fi
+              if [ `echo "${PORT_RESULT}" | grep "#"` ]; then
+                PORT_RESULT=""
+              fi
+              if [ "$PORT_RESULT" ]; then
+                PORT="$(echo $PORT_RESULT | cut -d '=' -f 2)"
+              fi
+              if [ -z "${PORT}" ]; then
+                echo "please set ${PORT_FLAG}={port} in .env.development or .env"
+                exit 1
+              fi
+              PORT_SET="-p ${PORT}:${PORT}"
           fi
 
-          if [ `echo "${PORT_RESULT}" | grep "#"` ]; then
-            PORT_RESULT=""
-          fi
-          if [ -z "${PORT_RESULT}" ] && [ -e .env.development ]; then
-            PORT_RESULT=`cat .env.development | grep PORT`
-          fi
-          if [ `echo "${PORT_RESULT}" | grep "#"` ]; then
-            PORT_RESULT=""
-          fi
-          if [ -z "${PORT_RESULT}" ] && [ -e .env ];then
-            PORT_RESULT=`cat .env | grep port`
-          fi
-          if [ `echo "${PORT_RESULT}" | grep "#"` ]; then
-            PORT_RESULT=""
-          fi
-          if [ -z "${PORT_RESULT}" ] && [ -e .env ];then
-            PORT_RESULT=`cat .env | grep PORT`
-          fi
-          if [ `echo "${PORT_RESULT}" | grep "#"` ]; then
-            PORT_RESULT=""
-          fi
-
-          PORT=3000
-          if [ "$PORT_RESULT" ]; then
-            PORT="$(echo $PORT_RESULT | cut -d '=' -f 2)"
-          fi
-          echo $PORT
           #echo $CMD
+          CMD="npm config set registry https://registry.npm.taobao.org;${CMD}"
           #CMD="grep md.local.com /etc/hosts || echo 172.19.219.230  md.local.com >> /etc/hosts ;$CMD"
           docker run -it --rm --name $CURRENT_DIR_NAME \
             -v "$PWD":/usr/src/app \
             -w /usr/src/app \
-            -p ${PORT}:${PORT} \
+            ${PORT_SET} \
+            --user $(id -u):$(id -g) \
             jenson/node-14.18 \
             /bin/sh -c "$CMD"
 
-          # in env react port=
-          # in env vue PORT=
+          # in env react PORT=
+          # in env vue port=
           # sh dnode.sh npm run dev
       ```
 
