@@ -5,6 +5,9 @@ tags: python pyinstaller
 categories: backend
 ---
 
+* TOC
+{:toc}
+
 > 由于需要将脚本给小白用，需要打包成exe直接执行
 
 # 使用pyinstaller导出exe

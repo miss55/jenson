@@ -4,6 +4,12 @@ title: swoole进程池
 tags: php swoole process-pool 
 categories: backend
 ---
+
+* TOC
+{:toc}
+
+# swoole进程池
+
 - swoole进程池+协程撑起并发
 - 场景：并发高且正常进程下容易阻塞并且不需要太大计算为主的。比如结合官网的协程http客户端或者easyswoole的http client扩展来做爬虫，并发也是杠杠的。
 

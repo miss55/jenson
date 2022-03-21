@@ -5,6 +5,10 @@ tags: javascript html5
 categories: frontend
 ---
 
+* TOC
+{:toc}
+
+
 > 场景:当你在app里浏览图片时，点击图片，改图片会放大，点击手机的返回键的时候会自动关闭。如果用网页来实现，应该怎么实现！
 
 # 有三种种实现方法:

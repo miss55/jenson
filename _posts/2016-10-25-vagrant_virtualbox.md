@@ -5,6 +5,10 @@ tags: vagrant virtualBox
 categories: tool
 ---
 
+* TOC
+{:toc}
+
+
 ## 1、为什么选择vagrant+virtualBox
 <p class="descript">
 可用脚本进行配置,创建自动化虚拟环境。通过vagrant封装好开发环境, 然后分发给每个团队成员, 可以不限制每个成员的系统,使用统一开发环境。从而避免不同环境导致各种bug。

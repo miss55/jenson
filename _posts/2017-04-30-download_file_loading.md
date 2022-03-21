@@ -4,6 +4,11 @@ title: 导出excel时实现loading效果
 tags: php js excel
 categories: common
 ---
+
+* TOC
+{:toc}
+
+
 > 在一次导出比较长的excel时，发现导出2-3秒后，使用者会以为没点到，会重复按
 
 # 第一种方法：另一个页面打开

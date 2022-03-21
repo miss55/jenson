@@ -4,6 +4,10 @@ title: php与mysql事务代码精简
 tags: php mysql 
 categories: backend
 ---
+
+* TOC
+{:toc}
+
 > mysql事务谁不会写，但代码写得漂亮就不一定了
 - 一般比较精简的写法大概是，如果exception不处理的话可以去掉
   ```php

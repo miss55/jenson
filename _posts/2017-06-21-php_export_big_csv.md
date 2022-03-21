@@ -5,7 +5,11 @@ tags: php excel 生成器
 categories: backend
 ---
 
-导出excel主要有两个需要解决的，1占内存，2耗时
+* TOC
+{:toc}
+
+> 导出excel主要有两个需要解决的，1占内存，2耗时
+
 # 一、解决超时问题
 1. 通过任务形式在后台导出，然后前端提供导出下载链接
 2. 需要修改php配置、php-fpm配置、nginx配置
