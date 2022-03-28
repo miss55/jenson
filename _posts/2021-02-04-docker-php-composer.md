@@ -28,10 +28,11 @@ categories: tool
     * * * * * cd ~/dnmp && /usr/local/bin/docker-compose  exec -T -u www-data  php php ${PROJECT_PATH}/artisan schedule:run >> /dev/null 2>&1
   ```
 # 脚本
+1. 放置到 /usr/local/bin
 ```shell
 #!/bin/bash
 
-CMD=""
+CMD="composer "
 for i in "$*"; do
     CMD="$CMD $i"
 done
@@ -57,7 +58,7 @@ if [ ! -d $COMPOSER_TMP ];then
   {
     "bitbucket-oauth": {},
     "github-oauth": {
-        "github.com": "[YOUR GITHUB TOKEN]"},
+        "github.com": "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"},
     "gitlab-oauth": {},
     "gitlab-token": {},
     "http-basic": {},
@@ -78,6 +79,15 @@ docker run --rm --interactive --tty \
 # sh install_composer_docker.sh composer install
 # sh install_composer_docker.sh composer require [composer package:version]
 #                               composer require foo/bar:2.6.30
+# version
+#   确定版本 like 1.0.2
+#   范围之内 like >=1.0  即 >=1.0,<2.0
+#   星号匹配 like 1.0.*  即 1.0.[任意]
+#   波浪号   like ~1.2.2  即 不升级到 1.3.0 版本 1.2 >= 版本号 < 1.3.0
+#   ^ 比 ~广 like ^1.2.2  即 1.2.2 <= 版本号 < 2.0.0
+
+# fixed 如果有某个依赖无法安装，可以试着使用 composer require 直接安装先
+
 ```
 
 
