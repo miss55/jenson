@@ -58,7 +58,7 @@ categories: tool
         {
           "bitbucket-oauth": {},
           "github-oauth": {
-              "github.com": "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"},
+              "github.com": ""},
           "gitlab-oauth": {},
           "gitlab-token": {},
           "http-basic": {},
