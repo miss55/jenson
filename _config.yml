@@ -39,10 +39,11 @@ gitment:
     client_id: a6fb73b3e790e234bab8
     client_secret: cc10aaff53a03d05ab2ee002dbf401dd7627c7a3
 
-url: "https://miss55.github.io/jenson"
-imgrepo: "https://miss55.github.io/jenson/static/img"
+url: "//www.wenyisong.cn"
+imgrepo: "//www.wenyisong.cn/static/img"
 
-
+# url: "https://miss55.github.io/jenson"
+# imgrepo: "https://miss55.github.io/jenson/static/img"
 #url: "http://127.0.0.1:4000"
 #imgrepo: "http://127.0.0.1:4000/static/img"
 
