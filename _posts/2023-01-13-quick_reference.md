@@ -66,6 +66,11 @@ categories: common
 1. [MySQL](https://wangchujiang.com/reference/docs/mysql.html)
 1. [PostgreSQL](https://wangchujiang.com/reference/docs/postgres.html)
 
+### 安全
+
+1. [kali](https://www.javatpoint.com/kali-linux)
+
+
 ### 快捷键
 
 1. [VSCode快捷键](https://wangchujiang.com/reference/docs/vscode.html)
