@@ -32,6 +32,7 @@ categories: common
 16. [php代码简洁之道](https://learnku.com/docs/clean-code-php/introduce/12659)
 17. [Laravel 项目开发规范](https://learnku.com/docs/laravel-specification/9.x/whats-the-use-of-standards/12720)
 18. [php psr协议](https://learnku.com/docs/psr)
+19. [算法](https://github.com/labuladong/fucking-algorithm)
 
 ### 前端
 
@@ -45,9 +46,11 @@ categories: common
 ### 工具
 
 1. [NGINX](https://wangchujiang.com/reference/docs/nginx.html)
+2. [公开api收集](https://github.com/public-apis/public-apis)
 
 ### 常用命令
 
+1. [命令行的艺术](https://github.com/jlevy/the-art-of-command-line/blob/master/README-zh.md)
 1. [Curl](https://wangchujiang.com/reference/docs/curl.html)
 1. [定时任务](https://wangchujiang.com/reference/docs/cron.html)
 1. [make](https://wangchujiang.com/reference/docs/make.html)
@@ -73,6 +76,14 @@ categories: common
 
 1. [kali](https://www.javatpoint.com/kali-linux)
 
+### 综合
+
+1. [设计大型系统](https://github.com/donnemartin/system-design-primer/blob/master/README-zh-Hans.md)
+2. [构建自己的](https://github.com/codecrafters-io/build-your-own-x)
+3. [规划路线图](https://github.com/kamranahmedse/developer-roadmap)
+4. [js编写的算法](https://github.com/trekhleb/javascript-algorithms/blob/master/README.zh-CN.md)
+5. [一些开源的软件或者服务](https://github.com/awesome-selfhosted/awesome-selfhosted)
+6. [一些常用的工具和资料](https://github.com/trimstray/the-book-of-secret-knowledge)
 
 ### 快捷键
 
