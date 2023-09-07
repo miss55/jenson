@@ -47,6 +47,7 @@ categories: common
 
 1. [NGINX](https://wangchujiang.com/reference/docs/nginx.html)
 2. [公开api收集](https://github.com/public-apis/public-apis)
+1. [浏览器支持表](https://caniuse.com/?search=TLS%201.2)
 
 ### 常用命令
 
@@ -76,6 +77,8 @@ categories: common
 
 1. [kali](https://www.javatpoint.com/kali-linux)
 
+1. [snyk 漏洞披露](https://security.snyk.io/disclosed-vulnerabilities)
+
 ### 综合
 
 1. [设计大型系统](https://github.com/donnemartin/system-design-primer/blob/master/README-zh-Hans.md)
@@ -99,3 +102,10 @@ categories: common
 1. [HTML 字符实体备忘清单](https://wangchujiang.com/reference/docs/html-char.html)
 1. [HTTP 状态码备忘清单](https://wangchujiang.com/reference/docs/http-status-code.html)
 1. [Emoji 备忘清单](https://wangchujiang.com/reference/docs/emoji.html)
+
+### 监控
+
+1. [普罗米修斯](https://prometheus.io/)
+1. [Grafana](https://grafana.com/oss/grafana/)
+1. [Percona Monitoring and Management (PMM)](https://docs.percona.com/percona-monitoring-and-management/setting-up/index.html)
+1. [Zabbix](https://www.zabbix.com/documentation/current/zh/manual)
