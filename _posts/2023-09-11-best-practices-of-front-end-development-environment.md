@@ -51,4 +51,4 @@ categories: tool
 
 如果想要使用vscode进行远程开发，其实很简单 [vscode将这一整个都打包到一个扩展里 Remote DevelopmentPreview](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack)
 
-> 当然如果有特殊需求的，可以自己写一个Dockerfile，将所需的软件应用写进去，这样子项目环境到时候就不会不清不楚，裁你的时候也没有顾虑 :scream: ~
+> 当然如果有特殊需求的，可以自己写一个Dockerfile，将所需的软件应用写进去，这样子项目环境到时候就不会不清不楚，裁你的时候也没有顾虑 &#x1F631; ~
