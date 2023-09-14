@@ -8,8 +8,12 @@ categories: backend
 * TOC
 {:toc}
 
-# 原因
-- 正常情况下我们都需要, 而且其他model都需要重复,代码冗余太多，而且我也懒得记
+# yii2 如何优雅的将Pagination集成到model中去
+
+## 原因
+
+* 正常情况下我们都需要, 而且其他model都需要重复,代码冗余太多，而且我也懒得记
+
   ```php
     $record = ActiveRecord::find();
     // 设置条件...
@@ -28,8 +32,10 @@ categories: backend
     ];
   ```
 
-# 封装
-- yii2 的Pagination 其实内置了request分页获取，所以不需要自己手动获取分页，而且我们返回分页内容格式应该是各个接口一致的。所以我们可以在```yii\db\ActiveQuery```类上做手脚.
+## 封装
+
+* yii2 的Pagination 其实内置了request分页获取，所以不需要自己手动获取分页，而且我们返回分页内容格式应该是各个接口一致的。所以我们可以在```yii\db\ActiveQuery```类上做手脚.
+
   ```php
   namespace app\models;
 

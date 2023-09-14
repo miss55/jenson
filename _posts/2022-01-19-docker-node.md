@@ -10,7 +10,7 @@ categories: tool
 
 # docker 构建node
 
-参考这个[仓库docker-node](https://github.com/miss55/docker-node/blob/main/README-zh.md)
+参考这个[仓库docker-node](https://github.com/miss55/docker-node/blob/main/README-zh.md) 已做了**改良**
 
 ## 创建Dockerfile
 
@@ -185,18 +185,19 @@ RUN apk add --no-cache python2 python2-dev make g++
 
 ### node 一些问题
 
-- ```docker run -it --rm  --name my-node-app -v "$PWD":/usr/src/app  node:14-alpine3.12 /bin/sh```
+* ```docker run -it --rm  --name my-node-app -v "$PWD":/usr/src/app  node:14-alpine3.12 /bin/sh```
+
 * python not found
   * [stackoverflow](https://stackoverflow.com/questions/62554991/how-do-i-install-python-on-alpine-linux)
   *
 
-    ```
+    ```shell
       # Install python/pip
       apk add --update --no-cache python2 && ln -sf python2 /usr/bin/python
       python2 -m ensurepip
     ```
 
-- alpine 源  sed -i 's/dl-cdn.alpinelinux.org/mirrors.tuna.tsinghua.edu.cn/g' /etc/apk/repositories
+* alpine 源  sed -i 's/dl-cdn.alpinelinux.org/mirrors.tuna.tsinghua.edu.cn/g' /etc/apk/repositories
   * [清华源](https://mirrors.tuna.tsinghua.edu.cn/help/alpine/)
 
 ### 国内可选源

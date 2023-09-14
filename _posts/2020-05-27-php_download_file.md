@@ -8,13 +8,18 @@ categories: backend
 * TOC
 {:toc}
 
+# php下载大文件 不用readfile()
+
 使用readfile下载文件时，文件越大需要的内存就越高，如果导出一个100MB的文件，则需要100MB的内存
 > fixed 看了<a href="https://www.php.net/manual/zh/function.readfile.php#81032" target="_blank">官方文档</a>，耗内存不是readfile问题，是没有关闭ob缓冲区，所以导出时先关闭```ob_end_flush();```即可;使用下面可以限速~
-# 1. 强制输出缓冲
+
+## 1. 强制输出缓冲
+
 1. 通过 fopen、fread、fflush 组合输出
 2. 使用 SplFileObject来替代上面函数方式导出
 
-# 2. file函数方式导出
+## 2. file函数方式导出
+
   ```php
     $filename = storage_path('app/test_down.rar');
 
@@ -48,8 +53,9 @@ categories: backend
     fclose($handle);
     fclose($fp);
   ```
-# 3. 使用SplFileObject来输出
-- 
+
+## 3. 使用SplFileObject来输出
+
   ```php
     $filename = storage_path('app/test_down.rar');
     $file = new \SplFileObject($filename, 'r');

@@ -5,6 +5,9 @@ tags: docker docker-compose
 categories: tool
 ---
 
+* TOC
+{:toc}
+
 # docker compose alias
 
 新版的docker内直接包含 **docker-compose** 命令，如果不习惯 `docker compose` 这种书写方式
