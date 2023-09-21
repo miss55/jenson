@@ -33,6 +33,8 @@ categories: common
 17. [Laravel 项目开发规范](https://learnku.com/docs/laravel-specification/9.x/whats-the-use-of-standards/12720)
 18. [php psr协议](https://learnku.com/docs/psr)
 19. [算法](https://github.com/labuladong/fucking-algorithm)
+20. [docker 从入门到实践](https://yeasy.gitbook.io/docker_practice/)
+21. [常用的docker compose yml](https://github.com/docker/awesome-compose)
 
 ### 前端
 
@@ -47,7 +49,7 @@ categories: common
 
 1. [NGINX](https://wangchujiang.com/reference/docs/nginx.html)
 2. [公开api收集](https://github.com/public-apis/public-apis)
-1. [浏览器支持表](https://caniuse.com/?search=TLS%201.2)
+3. [浏览器支持表](https://caniuse.com/?search=TLS%201.2)
 
 ### 常用命令
 
@@ -109,3 +111,7 @@ categories: common
 1. [Grafana](https://grafana.com/oss/grafana/)
 1. [Percona Monitoring and Management (PMM)](https://docs.percona.com/percona-monitoring-and-management/setting-up/index.html)
 1. [Zabbix](https://www.zabbix.com/documentation/current/zh/manual)
+
+### laravel相关的开源项目
+
+1. [ModstartCMS](https://gitee.com/modstart/ModStartCMS_Laravel9)
