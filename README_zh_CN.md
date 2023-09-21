@@ -31,3 +31,13 @@
 服务地址：<https://github.com/imsun/gitment>
 
 设置完毕后, 需要修改 `_config.yml` 中的 `gitment`。
+
+## 其他
+
+1. 分类
+    - tool
+    - frontend
+    - common
+    - backend
+    - framework
+    - shell
