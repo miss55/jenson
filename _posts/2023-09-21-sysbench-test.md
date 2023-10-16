@@ -72,6 +72,7 @@ categories: tool
 
 1. 找个地方新建一个测试目录
 1. 准备测试的配置文件 `vi my.cnf`
+    > table_size 代表表的数据量
 
     ```conf
         mysql-host='{your host}'

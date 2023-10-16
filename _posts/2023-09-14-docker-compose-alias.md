@@ -22,6 +22,6 @@ categories: tool
 #!/bin/bash
 
 # 建议位置在  /usr/local/bin
-docker-compose $*
+docker compose $*
 
 ```

@@ -74,6 +74,8 @@ categories: common
 
 1. [MySQL](https://wangchujiang.com/reference/docs/mysql.html)
 1. [PostgreSQL](https://wangchujiang.com/reference/docs/postgres.html)
+1. [图解MySQL](https://xiaolincoding.com/mysql/)
+1. [图解REDIS](https://xiaolincoding.com/redis/)
 
 ### 安全
 
@@ -104,6 +106,12 @@ categories: common
 1. [HTML 字符实体备忘清单](https://wangchujiang.com/reference/docs/html-char.html)
 1. [HTTP 状态码备忘清单](https://wangchujiang.com/reference/docs/http-status-code.html)
 1. [Emoji 备忘清单](https://wangchujiang.com/reference/docs/emoji.html)
+1. [java技术栈相关的知识点](https://javaguide.cn/database/basis.html)
+1. [数据库资料详情](https://github.com/0voice/newsql_nosql_library)
+1. [图解系统](https://xiaolincoding.com/os/)
+1. [图解网络](https://xiaolincoding.com/network/)
+1. [云计算图志](https://cloud-atlas.readthedocs.io/zh_CN/latest/index.html)
+1. [mysql8查询性能调优](https://github.com/zxyle/MySQL-8-Query-Performance-Tuning)
 
 ### 监控
 
@@ -115,3 +123,7 @@ categories: common
 ### laravel相关的开源项目
 
 1. [ModstartCMS](https://gitee.com/modstart/ModStartCMS_Laravel9)
+
+### 高并发
+
+1. [nacos](https://nacos.io/zh-cn/index.html)
