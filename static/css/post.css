@@ -75,6 +75,10 @@
     white-space: pre;
 }
 
+.post ul#markdown-toc {
+    padding-right: 20px;
+}
+
 @media screen and (min-width: 1200px){
     /**
       * 文章目录相关
@@ -116,10 +120,10 @@
 .content-navigation a:hover {color: #99b;}	/* 鼠标移动到链接上 */
 .content-navigation a:active {color: #99b}	/* 选定的链接 */
 
-.content-navigation{
+/* .content-navigation{
     max-width: 292px;
     padding-left: 30px;
-}
+} */
 .content-navigation-header {
     display: block;
     border-bottom: .1875em solid #ccc;

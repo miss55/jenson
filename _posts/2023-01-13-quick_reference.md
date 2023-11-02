@@ -112,6 +112,7 @@ categories: common
 1. [图解网络](https://xiaolincoding.com/network/)
 1. [云计算图志](https://cloud-atlas.readthedocs.io/zh_CN/latest/index.html)
 1. [mysql8查询性能调优](https://github.com/zxyle/MySQL-8-Query-Performance-Tuning)
+1. [面试题整理](https://github.com/0voice/campus_recruitmen_questions/tree/main)
 
 ### 监控
 
