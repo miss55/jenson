@@ -35,6 +35,7 @@ categories: common
 19. [算法](https://github.com/labuladong/fucking-algorithm)
 20. [docker 从入门到实践](https://yeasy.gitbook.io/docker_practice/)
 21. [常用的docker compose yml](https://github.com/docker/awesome-compose)
+22. [php version compare](https://eusonlito.github.io/php-changes-cheatsheet/index.html)
 
 ### 前端
 
@@ -82,6 +83,7 @@ categories: common
 1. [kali](https://www.javatpoint.com/kali-linux)
 
 1. [snyk 漏洞披露](https://security.snyk.io/disclosed-vulnerabilities)
+1. [PHP Mess Detector](https://phpmd.org/)
 
 ### 综合
 
@@ -91,6 +93,12 @@ categories: common
 4. [js编写的算法](https://github.com/trekhleb/javascript-algorithms/blob/master/README.zh-CN.md)
 5. [一些开源的软件或者服务](https://github.com/awesome-selfhosted/awesome-selfhosted)
 6. [一些常用的工具和资料](https://github.com/trimstray/the-book-of-secret-knowledge)
+
+### 博客
+
+1. [phpclasses](https://www.phpclasses.org/)
+1. [php internals](https://phpinternals.news/)
+1. [nikic](https://www.npopov.com/)
 
 ### 快捷键
 
