@@ -36,6 +36,7 @@ categories: common
 20. [docker 从入门到实践](https://yeasy.gitbook.io/docker_practice/)
 21. [常用的docker compose yml](https://github.com/docker/awesome-compose)
 22. [php version compare](https://eusonlito.github.io/php-changes-cheatsheet/index.html)
+23. [通过示例学 Golang 2020 中文版](https://gbe20.apachecn.org/#/README)
 
 ### 前端
 
@@ -121,7 +122,7 @@ categories: common
 1. [云计算图志](https://cloud-atlas.readthedocs.io/zh_CN/latest/index.html)
 1. [mysql8查询性能调优](https://github.com/zxyle/MySQL-8-Query-Performance-Tuning)
 1. [面试题整理](https://github.com/0voice/campus_recruitmen_questions/tree/main)
-1. [java面试题集](https://it-blog-cn.com/)
+1. [java面试题集-程序员进阶](https://it-blog-cn.com/)
 1. [中文通用大模型综合性基准SuperCLUE](https://github.com/CLUEbenchmark/SuperCLUE)
 
 ### 监控
