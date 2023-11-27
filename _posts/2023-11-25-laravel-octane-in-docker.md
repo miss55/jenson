@@ -10,7 +10,7 @@ categories: php
 
 # laravel octane 基于docker安装实践
 
-## 安装
+## 一、安装
 
 1. RoadRunner
     1. 安装扩展 `composer require laravel/octane spiral/roadrunner`
@@ -30,7 +30,7 @@ categories: php
         1. `npm config set registry https://registry.npm.taobao.org`
         1. `npm install --save-dev chokidar`
 
-## nginx 配置
+## 二、nginx 配置
 
 ```conf
 
@@ -118,7 +118,7 @@ categories: php
 
 ```
 
-## 使用
+## 三、使用
 
 1. 添加Makefile
 
@@ -146,107 +146,196 @@ categories: php
 
     ```
 
-## 生产使用
+## 四、生产使用
 
 1. 建议[参照文档](https://learnku.com/docs/laravel/10.x/octane/14909#6cc110)，将命令打包到docker中去
 
-## 存在的问题
-
-1. Swoole 跟 Roadrunner 区别
-    1. Swoole的worker基于[进程模式](https://wiki.swoole.com/#/http_server) ，Roadrunner的worker基于[线程模式](https://roadrunner.dev/docs/intro-config/current/en#cli-commands)。
+## 五、不靠谱的性能测试
 
 1. 测试并发，使用[wrk](https://github.com/wg/wrk)
-    > 本来使用ab，不过试了之后，发现ab测试会飘，虽然本次测试不严谨，只是想说明，虽然加上了内存模式+非阻塞异步事件IO，业务那块其实还是阻塞的
+    > 当前测试不是很严格，部分硬件性能没有完全压榨完全，另外测试是同一台宿主机的两台虚拟机
+    > 这次测试主要想看下php阻塞对并发影响，虽然加上了内存模式+非阻塞异步事件IO，业务那块其实还是阻塞的
+    > 本来使用ab，不过试了之后，发现ab测试会飘
+    > 每个都是测试至少3遍，选其中表现最好的
+    1. 环境
+        1. 硬件 4核8G
+        1. php版本
+            1. php-fpm: PHP 8.1.23
+            1. octane: PHP 8.1.23
+            1. hyperf PHP 8.1.25
+
     1. 对照组 使用hyperf，两边都是默认配置参数，使用dev模式，直接开刷
     1. hello world 组
 
-        * octane_swoole
+        * php-fpm static 200
 
             ```text
-                wrk -t8 -c400 -d30s http://octane_swoole.local.com/api/hello
-                Running 30s test @ http://octane_swoole.local.com/api/hello
+                wrk -t8 -c400 -d30s http://fpm.local.com/api/hello
+                Running 30s test @ http://fpm.local.com/api/hello
                 8 threads and 400 connections
                 Thread Stats   Avg      Stdev     Max   +/- Stdev
-                    Latency   517.98ms  118.91ms 950.41ms   74.36%
-                    Req/Sec    97.88     47.78   350.00     66.08%
-                22992 requests in 30.10s, 6.29MB read
-                Requests/sec:    763.84
-                Transfer/sec:    214.08KB
+                    Latency     1.26s   190.76ms   1.80s    80.33%
+                    Req/Sec    40.61     24.20   333.00     77.16%
+                9315 requests in 30.10s, 3.15MB read
+                Requests/sec:    309.47
+                Transfer/sec:    107.29KB
+            ```
+
+        * octane swoole
+
+            ```text
+                wrk -t8 -c400 -d30s http://octane.local.com/api/hello
+                Running 30s test @ http://octane.local.com/api/hello
+                8 threads and 400 connections
+                Thread Stats   Avg      Stdev     Max   +/- Stdev
+                    Latency   537.92ms  112.21ms 958.60ms   70.75%
+                    Req/Sec    95.31     46.90   380.00     70.21%
+                22144 requests in 30.10s, 6.06MB read
+                Requests/sec:    735.71
+                Transfer/sec:    206.20KB
+
+                # octane 的worker设置到8个,结果不是很理想
+
+                wrk -t8 -c400 -d30s http://octane.local.com/api/hello
+                Running 30s test @ http://octane.local.com/api/hello
+                8 threads and 400 connections
+                Thread Stats   Avg      Stdev     Max   +/- Stdev
+                    Latency   581.83ms  167.72ms   1.34s    74.55%
+                    Req/Sec    92.64     48.08   410.00     64.35%
+                20476 requests in 30.10s, 5.60MB read
+                Requests/sec:    680.28
+                Transfer/sec:    190.66KB
+
             ```
 
         * hyperf
 
             ```text
-                wrk -t6 -c400 -d30s http://hyperf.local.com/hello
+                wrk -t8 -c400 -d30s http://hyperf.local.com/hello
                 Running 30s test @ http://hyperf.local.com/hello
-                6 threads and 400 connections
+                8 threads and 400 connections
                 Thread Stats   Avg      Stdev     Max   +/- Stdev
-                    Latency    41.05ms   17.83ms 138.16ms   67.71%
-                    Req/Sec     1.62k   483.10     3.01k    65.33%
-                290595 requests in 30.08s, 63.45MB read
-                Requests/sec:   9661.79
-                Transfer/sec:      2.11MB
+                    Latency    59.98ms   30.18ms 223.07ms   62.56%
+                    Req/Sec   842.18    407.92     3.13k    78.64%
+                201302 requests in 30.09s, 43.95MB read
+                Requests/sec:   6689.38
+                Transfer/sec:      1.46MB
             ```
 
     1. 本地数据库，通过User Id查询用户信息
-        * octane_swoole
+
+        * php-fpm static 200
 
             ```text
-                wrk -t8 -c400 -d30s http://octane_swoole.local.com/api/test
-                Running 30s test @ http://octane_swoole.local.com/api/test
+                wrk -t6 -c400 -d30s http://fpm.local.com/api/test
+                Running 30s test @ http://fpm.local.com/api/test
+                6 threads and 400 connections
+                Thread Stats   Avg      Stdev     Max   +/- Stdev
+                    Latency     1.18s   134.97ms   1.38s    93.06%
+                    Req/Sec   115.95    108.88   370.00     67.72%
+                9909 requests in 30.10s, 5.60MB read
+                Requests/sec:    329.24
+                Transfer/sec:    190.54KB
+            ```
+
+        * octane swoole
+
+            ```text
+                wrk -t6 -c400 -d30s http://octane.local.com/api/test
+                Running 30s test @ http://octane.local.com/api/test
+                6 threads and 400 connections
+                Thread Stats   Avg      Stdev     Max   +/- Stdev
+                    Latency   764.12ms  146.47ms   1.24s    73.90%
+                    Req/Sec    86.13     35.96   376.00     70.27%
+                15351 requests in 30.08s, 8.02MB read
+                Requests/sec:    510.35
+                Transfer/sec:    272.95KB
+
+                # octane 的worker设置到8个,结果不是很理想
+                wrk -t8 -c400 -d30s http://octane.local.com/api/test
+                Running 30s test @ http://octane.local.com/api/test
                 8 threads and 400 connections
                 Thread Stats   Avg      Stdev     Max   +/- Stdev
-                    Latency   770.29ms  140.17ms   1.26s    74.23%
-                    Req/Sec    65.64     32.05   333.00     70.18%
-                15384 requests in 30.10s, 8.04MB read
-                Requests/sec:    511.12
-                Transfer/sec:    273.39KB
+                    Latency   720.49ms  188.45ms   1.58s    81.37%
+                    Req/Sec    69.49     31.71   404.00     78.24%
+                16474 requests in 30.10s, 8.60MB read
+                Requests/sec:    547.30
+                Transfer/sec:    292.72KB
             ```
 
         * hyperf
 
             ```text
-                wrk -t8 -c400 -d30s http://hyperf.local.com/test
+                wrk -t6 -c400 -d30s http://hyperf.local.com/test
                 Running 30s test @ http://hyperf.local.com/test
-                8 threads and 400 connections
+                6 threads and 400 connections
                 Thread Stats   Avg      Stdev     Max   +/- Stdev
-                    Latency   206.94ms   86.15ms 583.85ms   68.02%
-                    Req/Sec   242.64     73.02   545.00     69.53%
-                58019 requests in 30.10s, 31.04MB read
-                Requests/sec:   1927.74
-                Transfer/sec:      1.03MB
+                    Latency   211.14ms   86.29ms 610.61ms   67.81%
+                    Req/Sec   314.08     85.60   540.00     66.22%
+                56308 requests in 30.07s, 30.12MB read
+                Requests/sec:   1872.36
+                Transfer/sec:      1.00MB
             ```
 
     1. 本地数据库，循环查执行一百条查询sql，我观测到cpu hyperf 干到100%，但是 octane_swoole在70%-80%之间
-        * octane_swoole
+
+        * php-fpm static 200
 
             ```text
-                wrk -t8 -c400 -d30s http://octane_swoole.local.com/api/batch
-                Running 30s test @ http://octane_swoole.local.com/api/batch
+                wrk -t8 -c400 -d30s http://fpm.local.com/api/batch
+                Running 30s test @ http://fpm.local.com/api/batch
                 8 threads and 400 connections
                 Thread Stats   Avg      Stdev     Max   +/- Stdev
-                    Latency   993.38ms  587.19ms   1.98s    58.70%
-                    Req/Sec    16.41     11.62    60.00     67.00%
-                1293 requests in 30.05s, 691.39KB read
-                Socket errors: connect 0, read 0, write 0, timeout 1201
-                Requests/sec:     43.02
-                Transfer/sec:     23.01KB
+                    Latency     0.00us    0.00us   0.00us    -nan%
+                    Req/Sec    13.03     11.23    80.00     78.76%
+                1144 requests in 30.04s, 662.05KB read
+                Socket errors: connect 0, read 0, write 0, timeout 1144
+                Requests/sec:     38.08
+                Transfer/sec:     22.04KB
+            ```
+
+        * octane swoole
+
+            ```text
+                wrk -t8 -c400 -d30s http://octane.local.com/api/batch
+                Running 30s test @ http://octane.local.com/api/batch
+                8 threads and 400 connections
+                Thread Stats   Avg      Stdev     Max   +/- Stdev
+                    Latency   961.31ms  565.22ms   1.99s    57.73%
+                    Req/Sec    17.43     12.34    70.00     61.07%
+                1297 requests in 30.04s, 693.53KB read
+                Socket errors: connect 0, read 0, write 0, timeout 1200
+                Requests/sec:     43.17
+                Transfer/sec:     23.08KB
+
+                # octane 的worker设置到8个,结果不是很理想
+                wrk -t8 -c400 -d30s http://octane.local.com/api/batch
+                Running 30s test @ http://octane.local.com/api/batch
+                8 threads and 400 connections
+                Thread Stats   Avg      Stdev     Max   +/- Stdev
+                    Latency     1.07s   559.04ms   1.98s    58.16%
+                    Req/Sec    10.78      8.83    69.00     71.53%
+                1496 requests in 30.05s, 799.83KB read
+                Socket errors: connect 0, read 0, write 0, timeout 1398
+                Requests/sec:     49.78
+                Transfer/sec:     26.61KB
+
             ```
 
         * hyperf
 
             ```text
-                wrk -t6 -c400 -d30s http://hyperf.local.com/batch
+                wrk -t8 -c400 -d30s http://hyperf.local.com/batch
                 Running 30s test @ http://hyperf.local.com/batch
-                6 threads and 400 connections
+                8 threads and 400 connections
                 Thread Stats   Avg      Stdev     Max   +/- Stdev
-                    Latency     1.32s   442.07ms   2.00s    53.85%
-                    Req/Sec    28.12     44.97   470.00     92.68%
-                3423 requests in 30.03s, 1.05MB read
-                Socket errors: connect 0, read 0, write 0, timeout 3358
-                Non-2xx or 3xx responses: 2185
-                Requests/sec:    113.98
-                Transfer/sec:     35.78KB
+                    Latency     1.29s   434.40ms   1.97s    54.43%
+                    Req/Sec    22.56     34.25   420.00     91.90%
+                3474 requests in 30.04s, 1.08MB read
+                Socket errors: connect 0, read 0, write 0, timeout 3395
+                Non-2xx or 3xx responses: 2176
+                Requests/sec:    115.66
+                Transfer/sec:     36.81KB
             ```
 
 1. 结果：
@@ -256,7 +345,10 @@ categories: php
 1. 原因：
     1. octane.swoole应该时控制器里的逻辑遇到阻塞IO时将整个进程都阻塞导致，因为CPU利用率没打满
 
-## 总结与解决
+1. Swoole 跟 Roadrunner 区别
+    1. Swoole的worker基于[进程模式](https://wiki.swoole.com/#/http_server) ，Roadrunner的worker基于[线程模式](https://roadrunner.dev/docs/intro-config/current/en#cli-commands)。
+
+## 六、总结与解决
 
 1. 解决：
     1. 跟踪CPU负载，如果CPU消耗低于85-95%（持续），再增加worker数。
@@ -264,3 +356,6 @@ categories: php
     1. 将耗时的api拎出来优化，拆分，异步
 
 1. 总结：
+    1. 非阻塞异步事件IO+内存模式的确可以加快php响应
+    1. 传统大部分php组件扩展都是阻塞型的，就算用上了非阻塞事件IO也是会拖慢整个进程或线程响应，没法做到纯协程那样worker数等于cpu核心数，可以适当提高些
+    1. 如果使用协程式的框架，后续使用其他扩展时，也需要了解里面是否存在阻塞IO操作
