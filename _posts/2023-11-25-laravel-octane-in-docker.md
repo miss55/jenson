@@ -155,14 +155,112 @@ categories: php
 1. Swoole 跟 Roadrunner 区别
     1. Swoole的worker基于[进程模式](https://wiki.swoole.com/#/http_server) ，Roadrunner的worker基于[线程模式](https://roadrunner.dev/docs/intro-config/current/en#cli-commands)。
 
-1. 测试并发
-    1. hello world 情况下并发能力上天。
-    1. 本地数据库，一查已新增，并发能力上天，响应5ms上下。正常应该需要40.08 ms
-    1. 本地数据库，循环查执行一百条查询sql，响应50ms上下，并发越多越惨。
-    1. sleep 1s，直接gg, 也就是说如果存在长阻塞情况，还是会出现很糟糕的情况。
-1. php原本就是阻塞IO操作，即使通过swoole，roadrunner 基于非阻塞事件IO，但是你的程序却都是阻塞阻塞的，这就导致再好的非阻塞模型也是gameover
+1. 测试并发，使用[wrk](https://github.com/wg/wrk)
+    > 本来使用ab，不过试了之后，发现ab测试会飘，虽然本次测试不严谨，只是想说明，虽然加上了内存模式+非阻塞异步事件IO，业务那块其实还是阻塞的
+    1. 对照组 使用hyperf，两边都是默认配置参数，使用dev模式，直接开刷
+    1. hello world 组
+
+        * octane_swoole
+
+            ```text
+                wrk -t8 -c400 -d30s http://octane_swoole.local.com/api/hello
+                Running 30s test @ http://octane_swoole.local.com/api/hello
+                8 threads and 400 connections
+                Thread Stats   Avg      Stdev     Max   +/- Stdev
+                    Latency   517.98ms  118.91ms 950.41ms   74.36%
+                    Req/Sec    97.88     47.78   350.00     66.08%
+                22992 requests in 30.10s, 6.29MB read
+                Requests/sec:    763.84
+                Transfer/sec:    214.08KB
+            ```
+
+        * hyperf
+
+            ```text
+                wrk -t6 -c400 -d30s http://hyperf.local.com/hello
+                Running 30s test @ http://hyperf.local.com/hello
+                6 threads and 400 connections
+                Thread Stats   Avg      Stdev     Max   +/- Stdev
+                    Latency    41.05ms   17.83ms 138.16ms   67.71%
+                    Req/Sec     1.62k   483.10     3.01k    65.33%
+                290595 requests in 30.08s, 63.45MB read
+                Requests/sec:   9661.79
+                Transfer/sec:      2.11MB
+            ```
+
+    1. 本地数据库，通过User Id查询用户信息
+        * octane_swoole
+
+            ```text
+                wrk -t8 -c400 -d30s http://octane_swoole.local.com/api/test
+                Running 30s test @ http://octane_swoole.local.com/api/test
+                8 threads and 400 connections
+                Thread Stats   Avg      Stdev     Max   +/- Stdev
+                    Latency   770.29ms  140.17ms   1.26s    74.23%
+                    Req/Sec    65.64     32.05   333.00     70.18%
+                15384 requests in 30.10s, 8.04MB read
+                Requests/sec:    511.12
+                Transfer/sec:    273.39KB
+            ```
+
+        * hyperf
+
+            ```text
+                wrk -t8 -c400 -d30s http://hyperf.local.com/test
+                Running 30s test @ http://hyperf.local.com/test
+                8 threads and 400 connections
+                Thread Stats   Avg      Stdev     Max   +/- Stdev
+                    Latency   206.94ms   86.15ms 583.85ms   68.02%
+                    Req/Sec   242.64     73.02   545.00     69.53%
+                58019 requests in 30.10s, 31.04MB read
+                Requests/sec:   1927.74
+                Transfer/sec:      1.03MB
+            ```
+
+    1. 本地数据库，循环查执行一百条查询sql，我观测到cpu hyperf 干到100%，但是 octane_swoole在70%-80%之间
+        * octane_swoole
+
+            ```text
+                wrk -t8 -c400 -d30s http://octane_swoole.local.com/api/batch
+                Running 30s test @ http://octane_swoole.local.com/api/batch
+                8 threads and 400 connections
+                Thread Stats   Avg      Stdev     Max   +/- Stdev
+                    Latency   993.38ms  587.19ms   1.98s    58.70%
+                    Req/Sec    16.41     11.62    60.00     67.00%
+                1293 requests in 30.05s, 691.39KB read
+                Socket errors: connect 0, read 0, write 0, timeout 1201
+                Requests/sec:     43.02
+                Transfer/sec:     23.01KB
+            ```
+
+        * hyperf
+
+            ```text
+                wrk -t6 -c400 -d30s http://hyperf.local.com/batch
+                Running 30s test @ http://hyperf.local.com/batch
+                6 threads and 400 connections
+                Thread Stats   Avg      Stdev     Max   +/- Stdev
+                    Latency     1.32s   442.07ms   2.00s    53.85%
+                    Req/Sec    28.12     44.97   470.00     92.68%
+                3423 requests in 30.03s, 1.05MB read
+                Socket errors: connect 0, read 0, write 0, timeout 3358
+                Non-2xx or 3xx responses: 2185
+                Requests/sec:    113.98
+                Transfer/sec:     35.78KB
+            ```
+
+1. 结果：
+    1. hyperf的性能的确比octane.swoole的好
+    1. 按道理两边都是用Swoole Server 基于非阻塞事件IO，在单查询时，两边响应时长差别不大，但当并发上来后，octane.swoole就有点力不从心了
+
+1. 原因：
+    1. octane.swoole应该时控制器里的逻辑遇到阻塞IO时将整个进程都阻塞导致，因为CPU利用率没打满
+
+## 总结与解决
 
 1. 解决：
     1. 跟踪CPU负载，如果CPU消耗低于85-95%（持续），再增加worker数。
     1. 建议将不同请求拆分到不同实例上，然后再根据不同响应情况，配置worker数
     1. 将耗时的api拎出来优化，拆分，异步
+
+1. 总结：
