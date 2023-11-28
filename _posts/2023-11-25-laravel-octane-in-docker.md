@@ -35,87 +35,86 @@ categories: php
 
 ```conf
 
-  # 默认
-  map $http_upgrade $connection_upgrade {
-      default upgrade;
-      ''      close;
-  }
+    # 默认
+    map $http_upgrade $connection_upgrade {
+        default upgrade;
+        ''      close;
+    }
 
-  # 容器内 只能通过upstream方式转发
-  upstream backend {
-      server php8:8000;
-  }
+    # 容器内 只能通过upstream方式转发
+    upstream backend {
+        server php8:8000;
+    }
 
-  server {
-      listen 80;
-      server_name mdot.jenson.com ;
-      root /www/localhost/middleground_ot/public;
+    server {
+        listen 80;
+        server_name backendstudy.local.com;
+        #server_tokens off;
 
-      #access_log /dev/null;
-      access_log  /var/log/nginx/nginx.middleground8_ot.access.log  main;
-      error_log  /var/log/nginx/nginx.middleground8_ot.error.log  warn;
-      add_header X-Frame-Options "SAMEORIGIN";
-      add_header X-XSS-Protection "1; mode=block";
-      add_header X-Content-Type-Options "nosniff";
+        root /www/backend/public;
 
-      index index.html index.htm index.php;
+        add_header X-Frame-Options "SAMEORIGIN";
+        add_header X-Content-Type-Options "nosniff";
 
-      charset utf-8;
+        index index.php;
 
-      
-      location /socket.io {
-        proxy_pass http://laravel-echo:6001; #could be localhost if Echo and NginX are on the same box
-        proxy_http_version 1.1;
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection "Upgrade";
-      }
+        charset utf-8;
 
-      # 因为不是全栈 所以只是部分path转发 与官方给的默认配置有出入
-      location ~* ^/(api|web|horizon|telescope)/ {
-        try_files $uri $uri/ @octane;
-      }
+        # 因为不是全栈 所以只是部分path转发 与官方给的默认配置有出入
+        location ~* ^/(api|web|horizon|telescope)/ {
+            try_files $uri $uri/ @octane;
+        }
+        
 
-      # horizon vendor
-      location /vendor {
-          alias  /www/localhost/middleground_ot/public/vendor/;
-      }
+        # horizon vendor
+        location /vendor {
+            alias  /www/backend/public/vendor/;
+        }
 
-      # fronend 
-      location / {
-          alias  /www/localhost/middleground_8/dist/;
-      }
+        # fronend 
+        location / {
+            alias  /www/backend/public/dist/;
+        }
 
-      # proxy octane 
-      location @octane {
-          set $suffix "";
+        #location /index.php {
+        #    try_files /not_exists @octane;
+        #}
 
-          if ($uri = /index.php) {
-              set $suffix ?$query_string;
-          }
-
-          proxy_http_version 1.1;
-          proxy_set_header Host $http_host;
-          proxy_set_header Scheme $scheme;
-          proxy_set_header SERVER_PORT $server_port;
-          proxy_set_header REMOTE_ADDR $remote_addr;
-          proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-          proxy_set_header Upgrade $http_upgrade;
-          proxy_set_header Connection $connection_upgrade;
-
-          # 转发到 upstream
-          proxy_pass http://backend$suffix;
-      }
+        #location / {
+        #    try_files $uri $uri/ @octane;
+        #}
 
 
-      location = /favicon.ico { access_log off; log_not_found off; }
-      location = /robots.txt  { access_log off; log_not_found off; }
+        location = /favicon.ico { access_log off; log_not_found off; }
+        location = /robots.txt  { access_log off; log_not_found off; }
 
-      error_page 404 /index.php;
+        error_page 404 /index.php;
+        
+        location @octane {
+            set $suffix "";
 
-      location ~ /\.(?!well-known).* {
-          deny all;
-      }
-  }
+            if ($uri = /index.php) {
+                set $suffix ?$query_string;
+            }
+
+            proxy_http_version 1.1;
+            proxy_set_header Host $http_host;
+            proxy_set_header Scheme $scheme;
+            proxy_set_header SERVER_PORT $server_port;
+            proxy_set_header REMOTE_ADDR $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header Upgrade $http_upgrade;
+            proxy_set_header Connection $connection_upgrade;
+
+            proxy_pass http://backend$suffix;
+        }
+
+
+        location ~ /\.(?!well-known).* {
+            deny all;
+        }
+    }
+
 
 ```
 
