@@ -1,9 +1,10 @@
 ---
 layout: post
-title: laravel octane 基于docker安装实践
-tags: php laravel docker octane swoole roadrunner
+title: laravel octane 基于docker安装与hyperf，webman性能对比
+tags: php laravel docker octane swoole roadrunner hyperf webman
 categories: php
 ---
+
 
 * TOC
 {:toc}
@@ -163,8 +164,8 @@ categories: php
             1. php-fpm: PHP 8.1.23
             1. octane: PHP 8.1.23
             1. hyperf PHP 8.1.25
+            1. webman: PHP 8.1.23，框架的确简陋了点，连个环境变量配置都没有
 
-    1. 对照组 使用hyperf，两边都是默认配置参数，使用dev模式，直接开刷
     1. hello world 组
 
         * php-fpm static 200
@@ -222,6 +223,33 @@ categories: php
                 Transfer/sec:      1.46MB
             ```
 
+        * webman
+
+            ```text
+                # process 8
+                wrk -t8 -c400 -d30s http://webman.local.com/test/hello
+                Running 30s test @ http://webman.local.com/test/hello
+                8 threads and 400 connections
+                Thread Stats   Avg      Stdev     Max   +/- Stdev
+                    Latency     9.89ms    8.71ms 128.72ms   90.04%
+                    Req/Sec     5.72k     1.30k   13.28k    58.71%
+                1367121 requests in 30.09s, 218.97MB read
+                Requests/sec:  45427.13
+                Transfer/sec:      7.28MB
+
+                # process 12
+                wrk -t8 -c400 -d30s http://webman.local.com/test/hello
+                Running 30s test @ http://webman.local.com/test/hello
+                8 threads and 400 connections
+                Thread Stats   Avg      Stdev     Max   +/- Stdev
+                    Latency    10.27ms    8.21ms 120.76ms   85.99%
+                    Req/Sec     5.41k     1.45k   13.83k    62.25%
+                1295066 requests in 30.10s, 207.43MB read
+                Requests/sec:  43031.45
+                Transfer/sec:      6.89MB
+
+            ```
+
     1. 本地数据库，通过User Id查询用户信息
 
         * php-fpm static 200
@@ -275,6 +303,32 @@ categories: php
                 56308 requests in 30.07s, 30.12MB read
                 Requests/sec:   1872.36
                 Transfer/sec:      1.00MB
+            ```
+
+        * webman
+
+            ```text
+                # process 8
+                wrk -t8 -c400 -d30s http://webman.local.com/test/test
+                Running 30s test @ http://webman.local.com/test/test
+                8 threads and 400 connections
+                Thread Stats   Avg      Stdev     Max   +/- Stdev
+                    Latency    86.96ms   60.02ms   1.03s    84.61%
+                    Req/Sec   610.23     84.88     1.23k    76.46%
+                146078 requests in 30.09s, 72.15MB read
+                Requests/sec:   4854.74
+                Transfer/sec:      2.40MB
+
+                # process 12
+                wrk -t8 -c400 -d30s http://webman.local.com/test/test
+                Running 30s test @ http://webman.local.com/test/test
+                8 threads and 400 connections
+                Thread Stats   Avg      Stdev     Max   +/- Stdev
+                    Latency    91.43ms   69.79ms   1.35s    91.84%
+                    Req/Sec   584.84     78.12     1.03k    74.83%
+                139951 requests in 30.07s, 69.13MB read
+                Requests/sec:   4654.85
+                Transfer/sec:      2.30MB
             ```
 
     1. 本地数据库，循环查执行一百条查询sql，我观测到cpu hyperf 干到100%，但是 octane_swoole在70%-80%之间
@@ -338,7 +392,38 @@ categories: php
                 Transfer/sec:     36.81KB
             ```
 
+        * webman
+
+            ```text
+
+                # process 8
+                wrk -t8 -c400 -d30s http://webman.local.com/test/batch
+                Running 30s test @ http://webman.local.com/test/batch
+                8 threads and 400 connections
+                Thread Stats   Avg      Stdev     Max   +/- Stdev
+                    Latency     1.37s   494.45ms   2.00s    64.28%
+                    Req/Sec    23.68     15.70   110.00     73.67%
+                3453 requests in 30.07s, 1.71MB read
+                Socket errors: connect 0, read 0, write 0, timeout 1734
+                Requests/sec:    114.82
+                Transfer/sec:     58.07KB
+
+                # process 12
+                wrk -t8 -c400 -d30s http://webman.local.com/test/batch
+                Running 30s test @ http://webman.local.com/test/batch
+                8 threads and 400 connections
+                Thread Stats   Avg      Stdev     Max   +/- Stdev
+                    Latency     1.33s   453.25ms   2.00s    64.50%
+                    Req/Sec    17.77     11.77    80.00     68.64%
+                3612 requests in 30.08s, 1.78MB read
+                Socket errors: connect 0, read 0, write 0, timeout 1705
+                Requests/sec:    120.08
+                Transfer/sec:     60.74KB
+
+            ```
+
 1. 结果：
+    1. webman的并发效果还是挺不错的，应该是框架很精简的原因吧，不过随着阻塞io的增多，协程模式优势会慢慢体现出来
     1. hyperf的性能的确比octane.swoole的好
     1. 按道理两边都是用Swoole Server 基于非阻塞事件IO，在单查询时，两边响应时长差别不大，但当并发上来后，octane.swoole就有点力不从心了
 
@@ -356,6 +441,6 @@ categories: php
     1. 将耗时的api拎出来优化，拆分，异步
 
 1. 总结：
-    1. 非阻塞异步事件IO+内存模式的确可以加快php响应
+    1. 非阻塞异步事件IO+内存模式在有限的硬件资源里的确可以加快php响应
     1. 传统大部分php组件扩展都是阻塞型的，就算用上了非阻塞事件IO也是会拖慢整个进程或线程响应，没法做到纯协程那样worker数等于cpu核心数，可以适当提高些
     1. 如果使用协程式的框架，后续使用其他扩展时，也需要了解里面是否存在阻塞IO操作
