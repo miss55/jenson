@@ -123,8 +123,10 @@ categories: php
 
 ## laravel 设计模式
 
-1. laravel 所使用中间件根据目的不同，既可以看作责任链，也可以看作装饰器
-1. 所使用的事件是观察者模式，通过Event和Listener来实现
+1. laravel 所使用中间件根据目的不同，既可以看作责任链，也可以看作装饰器，而中间件是通过管道类执行的，laravel内还有很多类是使用了管道类
+    * 中间件分为全局和局部，配置位置：`app/Http/Kernel.php:12`，全局位置：`\Illuminate\Foundation\Http\Kernel::sendRequestThroughRouter`，局部位置：`\Illuminate\Routing\Router::runRouteWithinStack`
+    * 队列中也使用 `\Illuminate\Queue\CallQueuedHandler::dispatchThroughMiddleware`
+1. 所使用的事件是观察者模式，通过Event和Listener来实现，事件通知也是通过管道实现，`\Illuminate\Pipeline\Pipeline::send`
 1. cache store 类使用了适配器模式，先用wrapper类将Cache类的功能生成，然后再使用Store类来统一接口
 1. cache lock类使用了模板模式，父类Lock定义了算法骨架，一些算法操作延迟到了子类实现
 1. `\Illuminate\Database\Eloquent\Builder` 和 `\Illuminate\Database\Query\Builder` 都使用建造者模式
