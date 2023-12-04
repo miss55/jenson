@@ -50,8 +50,9 @@ categories: common
 ### 工具
 
 1. [NGINX](https://wangchujiang.com/reference/docs/nginx.html)
-2. [公开api收集](https://github.com/public-apis/public-apis)
-3. [浏览器支持表](https://caniuse.com/?search=TLS%201.2)
+1. [公开api收集](https://github.com/public-apis/public-apis)
+1. [浏览器支持表](https://caniuse.com/?search=TLS%201.2)
+1. [crontab执行时间计算](https://tool.lu/crontab/)
 
 ### 常用命令
 
@@ -89,11 +90,13 @@ categories: common
 ### 综合
 
 1. [设计大型系统](https://github.com/donnemartin/system-design-primer/blob/master/README-zh-Hans.md)
-2. [构建自己的](https://github.com/codecrafters-io/build-your-own-x)
-3. [规划路线图](https://github.com/kamranahmedse/developer-roadmap)
-4. [js编写的算法](https://github.com/trekhleb/javascript-algorithms/blob/master/README.zh-CN.md)
-5. [一些开源的软件或者服务](https://github.com/awesome-selfhosted/awesome-selfhosted)
-6. [一些常用的工具和资料](https://github.com/trimstray/the-book-of-secret-knowledge)
+1. [构建自己的](https://github.com/codecrafters-io/build-your-own-x)
+1. [规划路线图](https://github.com/kamranahmedse/developer-roadmap)
+1. [js编写的算法](https://github.com/trekhleb/javascript-algorithms/blob/master/README.zh-CN.md)
+1. [一些开源的软件或者服务](https://github.com/awesome-selfhosted/awesome-selfhosted)
+1. [一些常用的工具和资料](https://github.com/trimstray/the-book-of-secret-knowledge)
+1. [Leeks Linux 笔记](https://www.leeks.info/zh-cn/latest/index.html)
+1. [技术文章摘抄](https://learn.lianglianglee.com/)
 
 ### 博客
 
