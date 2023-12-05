@@ -97,6 +97,7 @@ categories: common
 1. [一些常用的工具和资料](https://github.com/trimstray/the-book-of-secret-knowledge)
 1. [Leeks Linux 笔记](https://www.leeks.info/zh-cn/latest/index.html)
 1. [技术文章摘抄](https://learn.lianglianglee.com/)
+1. [前端问题](https://vue3js.cn/interview/)
 
 ### 博客
 
