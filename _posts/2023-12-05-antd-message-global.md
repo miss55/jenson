@@ -12,6 +12,7 @@ categories: js
 # antd message 全局使用解决
 
 > 随着5.0版本到来后，官方将全局静态调用message等等都标注为警告
+> 全局message 控制台提示[antd: message] Static function can not consume
 
 ## 问题来源
 
