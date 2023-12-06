@@ -14,7 +14,7 @@ categories: backend
 
 ## 一、解决超时问题
 
-1. 通过任务形式在后台导出，然后前端提供导出下载链接
+1. 通过异步形式在后台导出，比如通过消息队列，定时任务等，然后前端提供导出下载链接
 2. 需要修改php配置、php-fpm配置、nginx配置
     * php配置可以直接在脚本中设置最大执行时间```ini_set('max_execution_time', 0);```
     * php-fpm 则需要修改配置 ```request_terminate_timeout=```

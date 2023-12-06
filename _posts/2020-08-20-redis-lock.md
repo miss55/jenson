@@ -12,7 +12,8 @@ categories: backend
 
 ## 场景
 
-- 在并发时，使用redis来做分布式锁。阅读了laravel的\Illuminate\Cache\RedisLock；发现其加锁还是有点小小的缺陷，不过在传统php中问题应该不大
+- 在并发时，使用redis来做分布式锁。阅读了laravel的\Illuminate\Cache\RedisLock；发现其加锁还是有点小小的缺陷，不过在传统p
+hp中问题应该不大
 
 ## 问题点
 
