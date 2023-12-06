@@ -8,7 +8,10 @@ categories: backend
 * TOC
 {:toc}
 
+# php与mysql事务代码精简
+
 > mysql事务谁不会写，但代码写得漂亮就不一定了
+> 不过还是需要注意，尽快速提交事务
 
 * 一般比较精简的写法大概是，如果exception不处理的话可以去掉
 

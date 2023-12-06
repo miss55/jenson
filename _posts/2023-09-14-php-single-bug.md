@@ -1,6 +1,6 @@
 ---
 layout: post
-title: php 单例bug
+title: php 单例继承后存在的bug与解决
 tags: php
 categories: backend
 ---
@@ -8,7 +8,7 @@ categories: backend
 * TOC
 {:toc}
 
-# php 单例bug
+# php 单例继承后存在的bug与解决
 
 ## 先上代码
 

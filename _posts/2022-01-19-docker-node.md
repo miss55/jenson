@@ -1,6 +1,6 @@
 ---
 layout: post
-title: docker node
+title: docker 构建node最佳实践
 tags: docker node
 categories: tool
 ---
@@ -8,9 +8,10 @@ categories: tool
 * TOC
 {:toc}
 
-# docker 构建node
+# docker 构建node最佳实践
 
-参考这个[仓库docker-node](https://github.com/miss55/docker-node/blob/main/README-zh.md) 已做了**改良**
+> 注意：**目前已经做了最佳实践** [仓库docker-node](https://github.com/miss55/docker-node/blob/main/README-zh.md#%E4%BD%BF%E7%94%A8) <br/>
+> 重点再此，经过多次实践，docker-node 我已经改良到只需简单几步就可以，具体直接看仓库的[readme的例子](https://github.com/miss55/docker-node/blob/main/README-zh.md#%E4%BD%BF%E7%94%A8)即可
 
 ## 创建Dockerfile
 
@@ -118,72 +119,104 @@ RUN apk add --no-cache python2 python2-dev make g++
 
   ```shell
     #!/bin/bash
+
+    # while read line; do export $line; done < .env.development
+    source ./.env.development
+
+    # set host
+    HOST_DOMAIN=$REACT_APP_HOST_DOMAIN
+    HOST_IP=$REACT_APP_HOST_IP
+
+    SET_HOST=" --add-host ${HOST_DOMAIN}:${HOST_IP}"
+
+    if [ -z "$HOST_IP" -o -z "$HOST_DOMAIN" ];then
+      # If the ip or domain name has a null then drop it
+      SET_HOST=""
+    fi
+
     CURRENT_DIR_NAME=`basename $PWD`
-    echo $CURRENT_DIR_NAME
+    CMD="$*"
 
-    CMD=""
-    for i in "$*"; do
-        CMD="$CMD $i"
-    done
+    echo "current directory [ ${CURRENT_DIR_NAME} ]"
+
+    CMD_MD5=`echo -n "$*$PWD" | md5sum | cut -d ' ' -f1`
+    CONTAINNER_NAME="${CURRENT_DIR_NAME}_${CMD_MD5}"
+
+    NODE_CACHE_DIRECTORY=$HOME/.node/.cache
+    NODE_NPM_GLOBAL_DIRECTORY=$HOME/.node/${IMAGE_NAME}
 
 
+
+    if [ ! -d "$NODE_CACHE_DIRECTORY" ]; then
+        echo "Initially creating node cache directory: $NODE_CACHE_DIRECTORY"
+        mkdir -p "$NODE_CACHE_DIRECTORY"
+    fi
+
+    if [ ! -d "$NODE_NPM_GLOBAL_DIRECTORY" ]; then
+        echo "Initially creating npm global directory: $NODE_NPM_GLOBAL_DIRECTORY"
+        mkdir -p "$NODE_NPM_GLOBAL_DIRECTORY/bin"
+        mkdir -p "$NODE_NPM_GLOBAL_DIRECTORY/node_modules"
+    fi
+
+
+    # set port
     PORT_SET=""
+
     RESULT=$(echo $CMD | grep -E "npm run dev|npm start|yarn start|yarn run dev")
     if [ -n "$RESULT" ];then
-        IS_REACT=`cat package.json|grep '"react":'`
-        PORT_FLAG=$([ -n "$IS_REACT" ] && echo "PORT=" || echo "port=")
-        PORT=""
 
-        if [ -e .env.development ]; then
-          PORT_RESULT=`cat .env.development | grep -E "port|PORT"`
-        fi
-        if [ `echo "${PORT_RESULT}" | grep "#"` ]; then
-          PORT_RESULT=""
-        fi
-        if [ -z "${PORT_RESULT}" ] && [ -e .env ];then
-          PORT_RESULT=`cat .env | grep -E "port|PORT"`
-        fi
-        if [ `echo "${PORT_RESULT}" | grep "#"` ]; then
-          PORT_RESULT=""
-        fi
-        if [ "$PORT_RESULT" ]; then
-          PORT="$(echo $PORT_RESULT | cut -d '=' -f 2)"
-        fi
         if [ -z "${PORT}" ]; then
-          echo "please set ${PORT_FLAG}={port} in .env.development or .env"
+          echo "Please set PORT={port} in .env.development"
           exit 1
         fi
         PORT_SET="-p ${PORT}:${PORT}"
-        echo "port map is ${PORT_SET}"
+        echo "Port mapping is ${PORT_SET}"
     fi
 
-    echo "run ${CMD}"
+    echo "run command [ ${CMD} ]"
 
-    # CMD="npm config set registry http://mirrors.cloud.tencent.com/npm/;${CMD}"
-    CMD="npm config set registry https://registry.npmmirror.com/;${CMD}"
-    #CMD="grep md.local.com /etc/hosts || echo 172.19.219.230  md.local.com >> /etc/hosts ;$CMD"
 
-    NODE_USER=`echo $(id -u):$(id -g)`
+    # set user
+    # NODE_USER="root:root"
+    NODE_USER="node:node"
     HAS_GOLABL=`echo $CMD|grep ' -g '`
-    if [ "$HAS_GOLABL" ]; then
+    if [ "$HAS_GOLABL" ] ; then
       NODE_USER="root:root"
     fi
 
-    docker run -it --rm --name $CURRENT_DIR_NAME \
+
+
+    # Host generates global node_modules
+    if [ ! -d "${NODE_NPM_GLOBAL_DIRECTORY}/bin" -o `ls ${NODE_NPM_GLOBAL_DIRECTORY}/bin/ | wc -l` -eq "0" ];then
+      # Copy from within the container
+      TEST_DOCKER_NODE_NAME="docker_test_node_name"
+      docker rm ${TEST_DOCKER_NODE_NAME}
+      docker run --name  ${TEST_DOCKER_NODE_NAME} ${IMAGE_NAME} /bin/sh -c "echo running test node"
+      docker cp ${TEST_DOCKER_NODE_NAME}:/usr/local/lib/node_modules ${NODE_NPM_GLOBAL_DIRECTORY}/
+      docker cp ${TEST_DOCKER_NODE_NAME}:/usr/local/bin ${NODE_NPM_GLOBAL_DIRECTORY}/
+      docker rm ${TEST_DOCKER_NODE_NAME}
+    fi
+
+    # Stop containers that are already running again, if there are
+    docker ps | grep "${CONTAINNER_NAME}" &&  docker stop "${CONTAINNER_NAME}" && sleep 2
+
+
+    # Run docker
+    docker run -it --rm --name $CONTAINNER_NAME \
       -v "$PWD":/usr/src/app \
+      -v "$NODE_CACHE_DIRECTORY":/home/node/.cache \
+      -v "${NODE_NPM_GLOBAL_DIRECTORY}/node_modules":/usr/local/lib/node_modules \
+      -v "${NODE_NPM_GLOBAL_DIRECTORY}/bin":/usr/local/bin \
       -w /usr/src/app \
+      ${SET_HOST} \
       ${PORT_SET} \
       --user $NODE_USER \
-      jenson/node-17.5 \
-      /bin/sh -c "$CMD"
+      ${IMAGE_NAME} \
+      /bin/sh -c "${CMD}"
 
-
-    # in env react PORT=
-    # in env vue port=
-    # sh dnode.sh npm run dev
 ```
 
-### node 一些问题
+## node 一些问题
 
 * ```docker run -it --rm  --name my-node-app -v "$PWD":/usr/src/app  node:14-alpine3.12 /bin/sh```
 
@@ -200,7 +233,7 @@ RUN apk add --no-cache python2 python2-dev make g++
 * alpine 源  sed -i 's/dl-cdn.alpinelinux.org/mirrors.tuna.tsinghua.edu.cn/g' /etc/apk/repositories
   * [清华源](https://mirrors.tuna.tsinghua.edu.cn/help/alpine/)
 
-### 国内可选源
+## 国内可选源
 
 1. 腾讯源*推荐*：  ```npm config set registry http://mirrors.cloud.tencent.com/npm/```
 1. 淘宝源：  ```npm config set registry https://registry.npm.taobao.org```

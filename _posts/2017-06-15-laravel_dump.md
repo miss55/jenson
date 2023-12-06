@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 将laravel的dd拎出来
+title: 在你的项目也是用laravel的dd
 tags: php laravel
 categories: backend
 ---
@@ -8,7 +8,7 @@ categories: backend
 * TOC
 {:toc}
 
-# 将laravel的dd拎出来
+# 在你的项目也是用laravel的dd
 
 > dd 其实最后是调用[symfony/var-dumper](https://github.com/symfony/var-dumper)中的CliDumper或者HtmlDumper
 

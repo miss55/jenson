@@ -1,6 +1,6 @@
 ---
 layout: post
-title: php code comment
+title: php代码注释最佳实践
 tags: php code-comment phpstorm 
 categories: backend
 ---
@@ -8,7 +8,7 @@ categories: backend
 * TOC
 {:toc}
 
-# php代码注释
+# php代码注释最佳实践
 
 > 虽然大家生成php文档基本都不使用php document，但写代码总需要注释的，而且有些注释不是给我们自己看的，而是给编辑器看的。毕竟php不是强类型语言，许多补全提示都依赖注释。
 >

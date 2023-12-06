@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 工具postman
+title: Postman Pre-request Script (postman脚本)
 tags: tool postman
 categories: tool
 ---
@@ -10,7 +10,7 @@ categories: tool
 
 > 转载：[作者：adongs 标题：Postman Pre-request Script (postman脚本) 编写](https://adongs.com/articles/2020/08/10/1597044862445.html)
 
-# POSTMAN 使用
+# Postman Pre-request Script (postman脚本)
 
 ## 环境变量
 

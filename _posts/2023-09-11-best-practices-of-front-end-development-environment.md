@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 前端开发环境最佳实践
+title: 前端开发环境基于vscode node最佳实践
 tags: docker node
 categories: tool
 ---
@@ -8,7 +8,7 @@ categories: tool
 * TOC
 {:toc}
 
-# 前端开发环境最佳实践
+# 前端开发环境基于vscode node最佳实践
 
 1. 情况
 1. 选择

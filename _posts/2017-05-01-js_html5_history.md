@@ -19,6 +19,7 @@ categories: frontend
 * 3、通过h5的history接口实现
 
 > 注：可能有部分浏览器兼容问题，所以我使用的是一个第三方的库文件
+
 * [https://github.com/browserstate/history.js](https://github.com/browserstate/history.js)
 * 作者的github上已经有 很多demo了，但如果没看懂的话 可以看看这篇
 * [关于history.js的使用](http://www.cnblogs.com/songbyjson/p/4886615.html)
