@@ -48,7 +48,7 @@ function comeOnGitalk() {
         clientSecret: '{{site.gitment.client_secret}}',
         repo: '{{site.gitment.repo}}',
         owner: '{{site.github.username}}',
-        admin: ['{{site.gitment.username}}'],
+        admin: ['{{site.github.username}}'],
         id: location.pathname,      // Ensure uniqueness and length less than 50
         distractionFreeMode: false  // Facebook-like distraction free mode
     })
