@@ -20,23 +20,33 @@ function backToTop() {
     $("[data-toggle='tooltip']").tooltip();
     var st = $(".page-scrollTop");
     var $window = $(window);
-    var topOffset;
+    var isShow = false
     //滚页面才显示返回顶部
-    $window.scroll(function() {
-        var currnetTopOffset = $window.scrollTop();
-        if (currnetTopOffset > 0 && topOffset > currnetTopOffset) {
-            st.fadeIn(500);
-        } else {
-            st.fadeOut(500);
+    $window.scroll((function() {
+        var timeId = null;
+        return function() {
+            clearTimeout(timeId);
+            timeId = setTimeout(function() {
+                var currnetTopOffset = $window.scrollTop();
+                if (currnetTopOffset > 200 && !isShow) {
+                    isShow = true;
+                    st.fadeIn(500);
+                    return ;
+                }
+                if (isShow) {
+                    isShow = false;
+                    st.fadeOut(500);
+                    return ;
+                }
+            }, 20);
         }
-        topOffset = currnetTopOffset;
-    });
+    })());
 
     //点击回到顶部
     st.click(function() {
+        isShow = false;
         $window.scrollTop(0)
     });
-
 
 }
 

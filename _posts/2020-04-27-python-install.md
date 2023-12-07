@@ -14,7 +14,7 @@ categories: backend
 
 ## 使用pyinstaller导出exe
 
-* <a href="http://www.pyinstaller.org" target="_blank">安装</a> ```pip install pyinstaller```
+* <a href="http://www.pyinstaller.org" title="pyinstaller 安装" target="_blank">安装</a> ```pip install pyinstaller```
 
 * 使用 ```pyinstaller [option] ~/myproject/source/myscript.py```
 
@@ -27,7 +27,7 @@ categories: backend
     | ```--specpath DIR```|用于存储生成的规范文件的文件夹（默认：当前目录） |
     | ```-n NAME, --name NAME```|应用程序名称 |
 
-* <img src="/static/img/pyinstall.jpg">
+* <img src="/static/img/pyinstall.jpg" alt="pyinstaller打包后运行示例">
 
 * 参考
   * <https://zhuanlan.zhihu.com/p/38659588>

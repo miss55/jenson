@@ -35,12 +35,12 @@ github:
 swiftype:
   searchId: iXZyPokVfxFaBTvi64Y6
 gitment:
-    repo: blog
-    client_id: a6fb73b3e790e234bab8
-    client_secret: cc10aaff53a03d05ab2ee002dbf401dd7627c7a3
+    repo: "jenson"
+    client_id: 7baa6de266c15f33620b
+    client_secret: 062a9145340a528913deaaff504ba9721fe2f120
 
-url: "//www.wenyisong.cn"
-imgrepo: "//www.wenyisong.cn/static/img"
+url: "https://www.wenyisong.cn"
+imgrepo: "https://www.wenyisong.cn/static/img"
 
 # url: "https://miss55.github.io/jenson"
 # imgrepo: "https://miss55.github.io/jenson/static/img"

@@ -23,9 +23,9 @@ categories: tool
 ## 2、准备
 
 1. **下载vagrant 和 virtualBox**
-    * virtaulBox: <a href="https://www.virtualbox.org/wiki/Downloads" target="_blank">https://www.virtualbox.org/wiki/Downloads</a>
+    * virtaulBox: <a href="https://www.virtualbox.org/wiki/Downloads" title="virtaulBox 下载" target="_blank">https://www.virtualbox.org/wiki/Downloads</a>
 
-    * vagrant: <a href="https://www.vagrantup.com/downloads.html" target="_blank">https://www.vagrantup.com/downloads.html</a>
+    * vagrant: <a href="https://www.vagrantup.com/downloads.html" title="vagrant 下载" target="_blank">https://www.vagrantup.com/downloads.html</a>
 
 2. **下载vagrant box 镜像**
     * 可以从vagrant库中找一个(最好用下载工具下,否则速度有点慢) <http://www.vagrantbox.es/>
@@ -59,5 +59,5 @@ categories: tool
         * 如果主机ping不通虚拟机,但虚拟机可以ping同主机,那么有可能是ip映射有问题,换个ip段再试
 
 5. **相关推荐**
-    * <a href="https://blog.csdn.net/zm_21/article/details/9410277/" target="_blank">vagrant 知识澄清与杂症诊治</a>
-    * <a href="https://www.iteye.com/blog/topmanopensource-2002302" target="_blank"> vagrant 命令</a>
+    * <a href="https://blog.csdn.net/zm_21/article/details/9410277/" title="vagrant 知识澄清与杂症诊治" target="_blank">vagrant 知识澄清与杂症诊治</a>
+    * <a href="https://www.iteye.com/blog/topmanopensource-2002302" title="vagrant 命令" target="_blank"> vagrant 命令</a>

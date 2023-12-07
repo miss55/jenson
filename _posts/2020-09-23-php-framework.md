@@ -29,7 +29,7 @@ categories: framework
 
  | 框架 | 官方介绍 | 类别 | 热度<br>(web<br>/framwork) | 易用性<br>(开发者) | 版本情况 |大版本升级 | 备注 |
  | --  | --   | --   | --  | --     | --      | --   | -- |
- | laravel | 具有表达力<br>优雅语法<br>重设计 | 企业级 | 61k/<br>22.1k | 高 | <a href="6修复稳定" target="_blank">6修复稳定</a><br><a href="https://github.com/laravel/framework/blob/8.x/CHANGELOG-7.x.md">7修复添加</a><br><a href="https://github.com/laravel/framework/blob/8.x/CHANGELOG-8.x.md" target="_blank">8修复添加</a> | 提供升级<br>(升级比较麻烦)| 从7,8版本中的<br>changelog可见，<br>laravel几乎每个<br>小版本都会<br>新增功能 |
+ | laravel | 具有表达力<br>优雅语法<br>重设计 | 企业级 | 61k/<br>22.1k | 高 | <a href="https://github.com/laravel/framework/blob/6.x/CHANGELOG-6.x.md" target="_blank">6修复稳定</a><br><a href="https://github.com/laravel/framework/blob/7.x/CHANGELOG-7.x.md">7修复添加</a><br><a href="https://github.com/laravel/framework/blob/8.x/CHANGELOG-8.x.md" target="_blank">8修复添加</a> | 提供升级<br>(升级比较麻烦)| 从7,8版本中的<br>changelog可见，<br>laravel几乎每个<br>小版本都会<br>新增功能 |
  | yii2 | 基于mvc<br>代码简洁优雅<br>高性能| 企业级 | 2k/<br>13.5k | 高 | <a href="https://github.com/yiisoft/yii2/blob/2.0.32/framework/CHANGELOG.md" target="_blank">yii2修复稳定</a> |提供1.1->2.*| 从changelog可见，<br>yii2以及进入<br>维护阶段，<br>没有新功能增加|
  | symfony | 组件重用型 | 企业级 | 23.9k | 高 | <a href="https://github.com/symfony/symfony/blob/master/CHANGELOG-5.1.md" target="_blank">修复稳定</a> |提供4.0.0-><br>4.4.0-><br>5.0.0-><br>5.0.1| 基于可重用组件，<br>laravel和yii都是<br>借鉴symfony，<br>商业也成熟|
  | thinkphp6 | 快速简单面向<br>对象使用php<br>新特性以及<br>借鉴了其他<br>优秀框架思想 | - | 7.5k/<br>2.2k | - | <a href="https://github.com/top-think/framework/releases" target="_blank">6修复改进添加</a> | 提供，不建议<br>大版本跨域 | 没接触过，<br>借用网友的话<br>“实现了laravel的本地化” |
