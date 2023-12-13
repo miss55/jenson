@@ -1,6 +1,6 @@
 ---
 layout: post
-title: antd message 全局使用解决 antd message Static function can not consume
+title: 通过自定义事件完美解决 antd message Static function can not consume报错
 tags: js react antd
 categories: js
 ---
@@ -9,7 +9,7 @@ categories: js
 * TOC
 {:toc}
 
-# antd message 全局使用解决 [antd: message] Static function can not consume
+# 通过自定义事件完美解决 antd message Static function can not consume报错
 
 > 随着5.0版本到来后，官方将全局静态调用message等等都标注为警告
 > 全局message 控制台提示[antd: message] Static function can not consume
