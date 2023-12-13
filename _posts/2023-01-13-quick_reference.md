@@ -86,6 +86,8 @@ categories: common
 
 1. [snyk 漏洞披露](https://security.snyk.io/disclosed-vulnerabilities)
 1. [PHP Mess Detector](https://phpmd.org/)
+1. [burpsuite实战指南](https://t0data.gitbooks.io/burpsuite/content/)
+1. [Burp Suite documentation](https://portswigger.net/burp/documentation/contents)
 
 ### 综合
 
