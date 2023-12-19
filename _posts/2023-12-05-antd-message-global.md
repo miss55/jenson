@@ -25,6 +25,7 @@ categories: js
 1. 现在要求message使用只能在组件下，解决方法就是将message封装在组件下即可
 1. 但又要让请求那边可以调用到，那就得看看WebApi能不能提供一种通知形式来做
 1. 巧了，WebApi可以[自定义事件](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener)
+1. <img src="/static/img/antd_global_message.png" alt="通过自定义事件完美解决 antd message Static function can not consume报错">
 
 ## 示例代码
 

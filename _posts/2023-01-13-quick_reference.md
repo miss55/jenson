@@ -53,6 +53,8 @@ categories: common
 1. [公开api收集](https://github.com/public-apis/public-apis)
 1. [浏览器支持表](https://caniuse.com/?search=TLS%201.2)
 1. [crontab执行时间计算](https://tool.lu/crontab/)
+1. [xhprof](https://github.com/longxinH/xhprof)
+1. [tideways-xhprof](https://tideways.com/profiler/xhprof-for-php7)
 
 ### 常用命令
 
@@ -101,12 +103,15 @@ categories: common
 1. [技术文章摘抄](https://learn.lianglianglee.com/)
 1. [前端问题](https://vue3js.cn/interview/)
 1. [Kubernetes中文文档](https://www.kubernetes.org.cn/k8s)
+1. [ddd实战](https://zq99299.github.io/note-book2/ddd/)
 
 ### 博客
 
 1. [phpclasses](https://www.phpclasses.org/)
 1. [php internals](https://phpinternals.news/)
 1. [nikic](https://www.npopov.com/)
+1. [大淘宝技术](https://my.oschina.net/u/4662964)
+1. [nginx 性能调优](https://zq99299.github.io/note-book2/monitor-tuning/05/)
 
 ### 快捷键
 
