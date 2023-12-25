@@ -32,9 +32,10 @@ categories: js
 1. message 组件，然后挂到你的项目上
 
 ```typescript
-import { message, } from "antd";
 import React,{ FC, useEffect,} from "react"
 
+import { message, } from "antd";
+import {MESSAGE_EVENT_NAME} from 'utils/antdMessage'
 
 
 type Props =  {
@@ -46,13 +47,15 @@ const Message:FC<Props> = props => {
 
   useEffect(() => {
     const bindEvent = (e:CustomEvent|any) => {
-      api.info(e?.detail?.message)
+      const func = e?.detail?.type || 'info'
+      const {content, duration, onClose} = e.detail?.params
+      api[func](content, duration, onClose)
     }
 
-    window.addEventListener('jenson_message', bindEvent)
+    window.addEventListener(MESSAGE_EVENT_NAME, bindEvent)
 
     return () => {
-      window.removeEventListener('jenson_message', bindEvent)
+      window.removeEventListener(MESSAGE_EVENT_NAME, bindEvent)
     }
   }, [api])
 
@@ -81,6 +84,7 @@ export default Message
 1. 当然上面的写法不优雅，我们就照着message的文档和interface写一个跟它一样的不就ok?
 
 ```typescript
+// utils/antdMessage.ts
 import { JointContent } from "antd/es/message/interface";
 
 export const MESSAGE_EVENT_NAME = 'jenson_message';
