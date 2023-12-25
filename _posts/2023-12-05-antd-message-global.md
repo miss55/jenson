@@ -77,3 +77,54 @@ export default Message
         }
     }))
 ```
+
+1. 当然上面的写法不优雅，我们就照着message的文档和interface写一个跟它一样的不就ok?
+
+```typescript
+import { JointContent } from "antd/es/message/interface";
+
+export const MESSAGE_EVENT_NAME = 'jenson_message';
+export enum MESSAGE_TYPES {
+    SUCCESS = 'success',
+    ERROR = 'error',
+    INFO = 'info',
+    WARNING = 'warning',
+    LOADING = 'loading',
+}
+
+const dispatch = (type: MESSAGE_TYPES, content: JointContent, duration?: number|VoidFunction, onClose?: VoidFunction) => {
+    window.dispatchEvent(new CustomEvent(MESSAGE_EVENT_NAME, {
+        detail: {
+            params: {
+                content,
+                duration,
+                onClose
+            },
+            type: type,
+        }
+    }))
+}
+
+export const message = {
+    success(content: JointContent, duration?: number|VoidFunction, onClose?: VoidFunction) {
+        dispatch(MESSAGE_TYPES.SUCCESS, content, duration, onClose)
+    },
+    error(content: JointContent, duration?: number|VoidFunction, onClose?: VoidFunction) {
+        dispatch(MESSAGE_TYPES.ERROR, content, duration, onClose)
+    },
+    info(content: JointContent, duration?: number|VoidFunction, onClose?: VoidFunction) {
+        dispatch(MESSAGE_TYPES.INFO, content, duration, onClose)
+    },
+    warning(content: JointContent, duration?: number|VoidFunction, onClose?: VoidFunction) {
+        dispatch(MESSAGE_TYPES.WARNING, content, duration, onClose)
+    },
+    loading(content: JointContent, duration?: number|VoidFunction, onClose?: VoidFunction) {
+        dispatch(MESSAGE_TYPES.LOADING, content, duration, onClose)
+    }
+}
+
+// message.success('这是个成功的测试', 2, () => {
+//   console.log ('能否能在结束后被执行')
+// })
+
+```
