@@ -111,7 +111,17 @@ categories: common
 1. [php internals](https://phpinternals.news/)
 1. [nikic](https://www.npopov.com/)
 1. [大淘宝技术](https://my.oschina.net/u/4662964)
+1. [美团技术团队](https://tech.meituan.com/)
 1. [nginx 性能调优](https://zq99299.github.io/note-book2/monitor-tuning/05/)
+1. [滴滴技术](https://www.didiglobal.com/news/blog)
+    * [blog.csdn](https://blog.csdn.net/DiDi_Tech)
+    * [滴滴技术](https://www.infoq.cn/profile/9FF5D5F89F3BC7/publish)
+1. [字节技术](https://tophub.today/n/12owDmavNV)
+    * [blog.csdn](https://blog.csdn.net/ByteDanceTech)
+1. [京东云技术团队 CSDN](https://blog.csdn.net/JDDTechTalk)
+    * [京东云技术团队 博客园](https://www.cnblogs.com/jingdongkeji/)
+    * [京东云官方的博客 51CTO](https://blog.51cto.com/u_15714439)
+    * [京东云开发者 segmentfault](https://segmentfault.com/u/jdcdevloper)
 
 ### 快捷键
 
@@ -151,3 +161,28 @@ categories: common
 ### 高并发
 
 1. [nacos](https://nacos.io/zh-cn/index.html)
+
+### 大厂开源
+
+1. [唯品会github](https://github.com/vipshop)
+    * [gitee](https://gitee.com/vipshop)
+    * [VJTools vip.com 的 Java 编码标准、库和工具](https://github.com/vipshop/vjtools)
+    * [Saturn 分布式、容错以及高可用的作业调度系统](https://github.com/vipshop/Saturn)
+    * [redis-migrate-tool Redis ​集群迁移工具](https://github.com/vipshop/redis-migrate-tool)
+    * [pallas Curator 之于 Zookeeper 就像 Pallas 之于 Elasticsearch](https://github.com/vipshop/pallas)
+1. [腾讯开源github](https://github.com/Tencent)
+    * [gitee](https://gitee.com/Tencent)
+    * [opensource.tencent.com](https://opensource.tencent.com/)
+    * [OpenCloudOS OpenCloudOS是由操作系统、软硬件厂商与个人共同倡议发起的操作系统社区项目](https://www.opencloudos.org/)
+    * [OpenTenBase](https://www.opentenbase.org/)
+1. [美团开源](https://github.com/meituan)
+    * [美团开源旧账号](https://github.com/meituan-dianping)
+1. [阿里开源](https://github.com/alibaba)
+    * [大淘宝开源项目](https://tech.taobao.org/open-source)
+1. [百度开源](https://github.com/baidu)
+    * [gitee](https://gitee.com/baidu)
+    * [opensource.baidu.com](https://opensource.baidu.com/#/projectslist)
+1. [滴滴开源](https://opensource.didiglobal.com/home)
+    * [github](https://github.com/didi)
+1. [字节开源](https://github.com/bytedance)
+1. [京东开源](https://github.com/jd-opensource)
