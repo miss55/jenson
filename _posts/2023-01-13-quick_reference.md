@@ -90,6 +90,7 @@ categories: common
 1. [PHP Mess Detector](https://phpmd.org/)
 1. [burpsuite实战指南](https://t0data.gitbooks.io/burpsuite/content/)
 1. [Burp Suite documentation](https://portswigger.net/burp/documentation/contents)
+1. [攻防战争](https://ctfwar.org.cn/cyber-range.html)
 
 ### 综合
 
@@ -104,6 +105,7 @@ categories: common
 1. [前端问题](https://vue3js.cn/interview/)
 1. [Kubernetes中文文档](https://www.kubernetes.org.cn/k8s)
 1. [ddd实战](https://zq99299.github.io/note-book2/ddd/)
+1. [服务器上各种软件安装指北](https://www.webhi.com/how-to/)
 
 ### 博客
 
@@ -146,6 +148,7 @@ categories: common
 1. [面试题整理](https://github.com/0voice/campus_recruitmen_questions/tree/main)
 1. [java面试题集-程序员进阶](https://it-blog-cn.com/)
 1. [中文通用大模型综合性基准SuperCLUE](https://github.com/CLUEbenchmark/SuperCLUE)
+1. [note-book](https://zq99299.github.io/note-book/)
 
 ### 监控
 

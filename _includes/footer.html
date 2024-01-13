@@ -8,8 +8,11 @@
                 <a href="https://beian.miit.gov.cn/" target="_blank">粤ICP备2022149726号-1</a>
         </div>
     </footer>
-    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
-    <script type="text/javascript" src="https://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <!-- <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script> -->
+
+    <script type="text/javascript" src="{{'/static/js/jquery.min.js' | prepend:site.baseurl | prepend: site.url  }}""></script>
+    <script type="text/javascript" src="{{'/static/boostrap/js/boostrap.min.js' | prepend:site.baseurl | prepend: site.url  }}""></script>
     <script type="text/javascript" src="{{'/static/js/script.js' | prepend:site.baseurl | prepend: site.url  }}"></script>
     {% for script in page.scripts %}<script type="text/javascript" src="{{'/static/js/' | append:script | prepend:site.baseurl | prepend: site.url  }}"></script>
     {%endfor%}
