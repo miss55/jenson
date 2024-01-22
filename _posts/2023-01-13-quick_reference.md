@@ -131,6 +131,14 @@ categories: common
 1. [GitLab 键盘快捷键](https://wangchujiang.com/reference/docs/gitlab.html)
 1. [PyCharm 键盘快捷键](https://wangchujiang.com/reference/docs/pycharm.html)
 
+### AI相关
+
+1. [AI工具集](https://ai-bot.cn/)
+1. [当下热门的开源AI大模型全梳理](https://juejin.cn/post/7237240999243071525)
+1. [CLiB中文大模型能力评测榜单](https://github.com/jeinlee1991/chinese-llm-benchmark)
+1. [SuperCLUE排行榜](https://www.superclueai.com/)
+1. [中文语言理解测评基准](https://www.cluebenchmarks.com/)
+
 ### 其他
 
 1. [排版说明](https://wangchujiang.com/reference/docs/quickreference.html)
@@ -149,6 +157,7 @@ categories: common
 1. [java面试题集-程序员进阶](https://it-blog-cn.com/)
 1. [中文通用大模型综合性基准SuperCLUE](https://github.com/CLUEbenchmark/SuperCLUE)
 1. [note-book](https://zq99299.github.io/note-book/)
+1. [提问的智慧](https://lug.ustc.edu.cn/wiki/doc/smart-questions/)
 
 ### 监控
 
