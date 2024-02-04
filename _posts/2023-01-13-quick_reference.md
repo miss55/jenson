@@ -55,6 +55,7 @@ categories: common
 1. [crontab执行时间计算](https://tool.lu/crontab/)
 1. [xhprof](https://github.com/longxinH/xhprof)
 1. [tideways-xhprof](https://tideways.com/profiler/xhprof-for-php7)
+1. [jetbrains toolbox](https://www.jetbrains.com/toolbox-app/)
 
 ### 常用命令
 
@@ -91,6 +92,9 @@ categories: common
 1. [burpsuite实战指南](https://t0data.gitbooks.io/burpsuite/content/)
 1. [Burp Suite documentation](https://portswigger.net/burp/documentation/contents)
 1. [攻防战争](https://ctfwar.org.cn/cyber-range.html)
+1. [SSL Configuration Generator](https://ssl-config.mozilla.org/)
+1. [2018构建安全 PHP 软件指南](https://paragonie.com/blog/2017/12/2018-guide-building-secure-php-software)
+1. [OWASP备忘单系列](https://cheatsheetseries.owasp.org/cheatsheets/AJAX_Security_Cheat_Sheet.html)
 
 ### 综合
 
@@ -109,6 +113,7 @@ categories: common
 
 ### 博客
 
+1. [phpstorm php annotated monthly](https://blog.jetbrains.com/phpstorm/tag/php-annotated-monthly/)
 1. [phpclasses](https://www.phpclasses.org/)
 1. [php internals](https://phpinternals.news/)
 1. [nikic](https://www.npopov.com/)
@@ -138,6 +143,8 @@ categories: common
 1. [CLiB中文大模型能力评测榜单](https://github.com/jeinlee1991/chinese-llm-benchmark)
 1. [SuperCLUE排行榜](https://www.superclueai.com/)
 1. [中文语言理解测评基准](https://www.cluebenchmarks.com/)
+1. [llama.cpp](https://github.com/ggerganov/llama.cpp)
+1. [llama](https://github.com/facebookresearch/llama)
 
 ### 其他
 
@@ -158,6 +165,7 @@ categories: common
 1. [中文通用大模型综合性基准SuperCLUE](https://github.com/CLUEbenchmark/SuperCLUE)
 1. [note-book](https://zq99299.github.io/note-book/)
 1. [提问的智慧](https://lug.ustc.edu.cn/wiki/doc/smart-questions/)
+1. [Java快速面试指南](https://github.com/ThinkingHan/Java-review-gudie)
 
 ### 监控
 
@@ -169,6 +177,7 @@ categories: common
 ### laravel相关的开源项目
 
 1. [ModstartCMS](https://gitee.com/modstart/ModStartCMS_Laravel9)
+1. [Laravel-kafka](https://junges.dev/documentation/laravel-kafka/v1.13/1-introduction)
 
 ### 高并发
 
