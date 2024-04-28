@@ -1,27 +1,28 @@
 ---
 layout: post
-title: swoole进程池
+title: swoole进程池+协程撑起并发
 tags: php swoole process-pool 
-categories: common
+categories: backend
 ---
-- swoole进程池+协程撑起并发
-- 场景：并发高且正常进程下容易阻塞并且不需要太大计算为主的。比如结合官网的协程http客户端或者easyswoole的http client扩展来做爬虫，并发也是杠杠的。
 
-- 运行实例代码
+* TOC
+{:toc}
+
+# swoole进程池+协程撑起并发
+
+* 场景：并发高且正常进程下容易阻塞并且不需要太大计算为主的。比如结合官网的协程http客户端或者easyswoole的http client扩展来做爬虫，并发也是杠杠的。
+
+* 运行实例代码
+
+  ```shell
+    php process.php start
+    php process.php status
+    php process.php stop
   ```
-  php process.php start
-  php process.php status
-  php process.php stop
-  ```
-- 实例代码
+
+* 实例代码
+
   ```php
-    <?php
-      /**
-      * Created by PhpStorm.
-      * User: jenson
-      * Date: 2020/6/15
-      * Time: 22:30
-      */
 
       use Swoole\Runtime;
       use Swoole\Timer;

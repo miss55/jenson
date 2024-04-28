@@ -2,23 +2,33 @@
 layout: post
 title: php如何导出巨大数据excel表格
 tags: php excel 生成器
-categories: common
+categories: backend
 ---
 
-导出excel主要有两个需要解决的，1占内存，2耗时
-# 一、解决超时问题
-1. 通过任务形式在后台导出，然后前端提供导出下载链接
+* TOC
+{:toc}
+
+# php如何导出巨大数据excel表格
+
+> 导出excel主要有两个需要解决的，1占内存，2耗时
+
+## 一、解决超时问题
+
+1. 通过异步形式在后台导出，比如通过消息队列，定时任务等，然后前端提供导出下载链接
 2. 需要修改php配置、php-fpm配置、nginx配置
-    - php配置可以直接在脚本中设置最大执行时间``` ini_set('max_execution_time', 0);```
-    - php-fpm 则需要修改配置 ```request_terminate_timeout=```
-    - nginx 则需要修改配置 
+    * php配置可以直接在脚本中设置最大执行时间```ini_set('max_execution_time', 0);```
+    * php-fpm 则需要修改配置 ```request_terminate_timeout=```
+    * nginx 则需要修改配置
+
+    ```config
+        send_timeout= # 服务端想客户端传输数据超时
+        fastcgi_read_timeout= # 读取fastcgi内容超时
     ```
-    send_timeout= # 服务端想客户端传输数据超时
-    fastcgi_read_timeout= # 读取fastcgi内容超时
-    ```
+
     > 如果导出时间太长，最好不要用这种方法，毕竟需要修改nginx和php-fpm的配置
 
-# 二、解决占内存问题
+## 二、解决占内存问题
+
 1. 导出excel库选择
   如果导出表格没要求，但数据量巨大的，我们可以使用自带的```fputcsv```来处理，第三库例如PhpSpreadsheet，平均每个单元格需要1k内存，100M内存单纯放单元格也只能放102400个，如果一行10个单元格，也就1w行左右
 2. 获取数据时分批获取，比如去数据库获取10w条数据，我们可以使用框架集成的ORM批量获取方法，比如比如laravel提供的chunk，YII2 ORM提供的batch，否则我们只能自己去封装，个人比较推荐使用生成器去封装。例如我通过laravel去封装的
@@ -53,7 +63,7 @@ categories: common
     }
 ```
 
-#### 三、导出excel例子
+## 三、导出excel例子
 
 ```php
   function download()

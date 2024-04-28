@@ -262,3 +262,15 @@ a:active {text-decoration: none}	/* 选定的链接 */
         font-size: 36px;
     }
 }
+
+@media (min-width: 1400px) {
+    .container {
+        width: 1400px;
+    }
+}
+
+@media (min-width: 1600px) {
+    .container {
+        width: 1600px;
+    }
+}

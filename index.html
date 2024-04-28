@@ -13,7 +13,7 @@ layout: default
                     <a href="{{ site.baseurl | prepend: site.url  }}/archive/#{{ post.date | date: '%Y-%m-%d' }}"><span class="octicon octicon-calendar"></span>&nbsp;<span>{{ post.date | date: "%Y-%m-%d" }}</span></a>
                 </header>
                 <div class="module">
-                  <a class="title" href="{{ post.url | prepend: site.baseurl | prepend: site.url }}">
+                  <a class="title" href="{{ post.url | prepend: site.baseurl | prepend: site.url }}" title="{{ post.title }}">
                       {{ post.title }}
                   </a>
                   <p>{% if post.excerpt.size > 32 %}{{ post.excerpt }}{% else %}{{ post.content | strip_html | strip_newlines | truncate: 160 }}{% endif %}</p>

@@ -1,3 +1,7 @@
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K4WN4XRD"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <header>
         <nav class="navbar navbar-tiffany rectangle" role="navigation">
             <div class="container">
@@ -7,8 +11,8 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="{{ site.baseurl | prepend: site.url }}/">{{ site.title }}</a>
-                    <p class="navbar-text">{{ site.description }}</p>
+                    <a class="navbar-brand" href="{{ site.baseurl | prepend: site.url }}/" title="{{ site.title }}">{{ site.title }}</a>
+                    <!-- <p class="navbar-text">{{ site.description }}</p> -->
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
@@ -21,7 +25,7 @@
                         {% if p.url == page.url %}
                         <li class="active">{% else %}
                         <li>{% endif %}
-                            <a href="{{ p.url | prepend: site.baseurl | prepend: site.url }}" class="word-keep"><span class="octicon {{ p.icon }}"></span>&nbsp;&nbsp;{{ p.title }}</a>
+                            <a href="{{ p.url | prepend: site.baseurl | prepend: site.url }}" class="word-keep" title="{{ p.title }}"><span class="octicon {{ p.icon }}"></span>&nbsp;&nbsp;{{ p.title }}</a>
                         </li>
                         {% endif %}
                         {% endfor %}

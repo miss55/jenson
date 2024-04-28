@@ -1,45 +1,50 @@
 ---
 layout: post
-title: 
-tags: 工具 postman
-categories: postman
+title: Postman Pre-request Script (postman脚本)
+tags: tool postman
+categories: tool
 ---
+
+* TOC
+{:toc}
 
 > 转载：[作者：adongs 标题：Postman Pre-request Script (postman脚本) 编写](https://adongs.com/articles/2020/08/10/1597044862445.html)
 
-### POSTMAN Script api
+# Postman Pre-request Script (postman脚本)
 
-#### 环境变量
-```javascript
-    //设置当前环境变量
-    pm.environment.set("key", "value");
-    //获取当前环境变量
-    pm.environment.get("key");
-    //清除当前环境变量
-    pm.environment.unset("key");
-    //设置全局环境变量
-    pm.globals.set("key", "value");
-    //获取全局环境变量
-    pm.globals.get("key");
-    //清除全局环境变量
-    pm.globals.unset("key");
-    //在全局和当前环境变量中获取
-    pm.variables.get("key");
-    //设置集合
-    pm.collectionVariables.set("key",["value1","value2","value3"])
-    //获取集合
-    pm.collectionVariables.get("key");
-    //清除集合
-    pm.collectionVariables.unset("key");
-    //遍历集集合，遍历function(遍历当前值,索引,集合,)
-    pm.collectionVariables.get("key").forEach(function(a,b,c){
-    console.log(a);
-    console.log(b);
-    console.log(c);
-    });
-```
+## 环境变量
 
-#### GET请求
+  ```javascript
+      //设置当前环境变量
+      pm.environment.set("key", "value");
+      //获取当前环境变量
+      pm.environment.get("key");
+      //清除当前环境变量
+      pm.environment.unset("key");
+      //设置全局环境变量
+      pm.globals.set("key", "value");
+      //获取全局环境变量
+      pm.globals.get("key");
+      //清除全局环境变量
+      pm.globals.unset("key");
+      //在全局和当前环境变量中获取
+      pm.variables.get("key");
+      //设置集合
+      pm.collectionVariables.set("key",["value1","value2","value3"])
+      //获取集合
+      pm.collectionVariables.get("key");
+      //清除集合
+      pm.collectionVariables.unset("key");
+      //遍历集集合，遍历function(遍历当前值,索引,集合,)
+      pm.collectionVariables.get("key").forEach(function(a,b,c){
+      console.log(a);
+      console.log(b);
+      console.log(c);
+      });
+  ```
+
+## GET请求
+
 ```javascript
     //获取当前请求方式,返回:string
     var method = pm.request.method;
@@ -76,7 +81,9 @@ categories: postman
       
     });
 ```
-#### POST请求
+
+## POST请求
+
 ```javascript
     //获取所有headers
     var header = pm.request.getHeaders();
@@ -94,7 +101,8 @@ categories: postman
     pm.request.removeQueryParams("1","2");
 ```
 
-#### Cookies
+## Cookies
+
 ```javascript
     //创建一个cookie容器
     const cookieJar = pm.cookies.jar();
@@ -134,8 +142,8 @@ categories: postman
 
 ```
 
+## 工具
 
-#### 工具
 ```javascript
     //字符串转json对象
     var json =JSON.parse("");
@@ -184,7 +192,9 @@ categories: postman
     var encrypted = CryptoJS.AES.encrypt(encryptedWord, keys, { iv: ivs,mode:CryptoJS.mode.CBC, padding: CryptoJS.pad.Pkcs7}); //加密结果
     var ciphertext = encrypted.toString(); //密文
 ```
-#### Tests编写
+
+## Tests编写
+
 ```javascript
     值获取
     //请求耗时
@@ -412,7 +422,8 @@ categories: postman
     
 ```
 
-#### 动态变量
+## 动态变量
+
 ```javascript
     //动态变量获取
     pm.variables.replaceIn('{{$randomFirstName}}');
@@ -420,7 +431,9 @@ categories: postman
     //动态变量获取
     pm.variables.replaceIn('{{$randomFirstName}}');
 ```
-#### 值列表
+
+## 值列表
+
 <table align="center">
   <tr>
     <th align="center">变量名</th>

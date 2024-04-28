@@ -1,13 +1,18 @@
 ---
 layout: post
 title: js解析json格式(像console.log打印的格式)
-tags: javscript json
-categories: common
+tags: javascript json
+categories: frontend
 ---
+
+* TOC
+{:toc}
+
+# js解析json格式(像console.log打印的格式)
 
 > console.log 控制台打印，可以友好的打印出有层次结构的json对象。pc端下屡试不爽。但如果在手机浏览器呢？alert可没有这个功能，所以自己也尝试写个函数来打印出层次结构清晰的json对象。
 
-- 代码
+* 代码
 
 ```javascript
   /**
@@ -70,6 +75,7 @@ function printToBody(data){
 ```
 
 > 最后当我弄完后发现直接用JSON.stringify来得更直接
+
 ```javascript
   JSON.stringify(obj, undefined, '\t')
 ```
