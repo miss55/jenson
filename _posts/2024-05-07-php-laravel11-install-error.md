@@ -1,6 +1,6 @@
 ---
 layout: post
-title: antd input 搜索忽略中文输入法中间输入过程，或者说识别中文输入法
+title: laravel 11 install error: Your requirements could not be resolved to an installable set of packages
 tags: laravel cookie php
 categories: php
 ---
