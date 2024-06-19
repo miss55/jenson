@@ -1,6 +1,6 @@
 ---
 layout: post
-title: laravel 11 install error: Your requirements could not be resolved to an installable set of packages
+title: laravel 11 install error &colon; Your requirements could not be resolved to an installable set of packages
 tags: laravel cookie php
 categories: php
 ---
@@ -8,7 +8,7 @@ categories: php
 * TOC
 {:toc}
 
-# laravel 11 install error: Your requirements could not be resolved to an installable set of packages
+# laravel 11 install error &colon; Your requirements could not be resolved to an installable set of packages
 
 ## 情况
 
