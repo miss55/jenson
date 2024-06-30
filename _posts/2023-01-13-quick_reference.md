@@ -225,3 +225,8 @@ categories: common
 1. [亚洲云](https://www.asiayun.com/)
 1. [数掘科技](https://www.gfvps.cn/)
 1. [爱微云](https://cloud.aiwnet.cn/)
+1. [阿里云](https://www.aliyun.com/)
+1. [腾讯云](https://cloud.tencent.com/)
+1. [华为云](https://www.huaweicloud.com/)
+1. [百度云](https://cloud.baidu.com/)
+1. [京东云](https://www.jdcloud.com/)
