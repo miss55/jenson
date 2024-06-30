@@ -219,3 +219,9 @@ categories: common
     * [github](https://github.com/didi)
 1. [字节开源](https://github.com/bytedance)
 1. [京东开源](https://github.com/jd-opensource)
+
+### 云服务
+
+1. [亚洲云](https://www.asiayun.com/)
+1. [数掘科技](https://www.gfvps.cn/)
+1. [爱微云](https://cloud.aiwnet.cn/)
