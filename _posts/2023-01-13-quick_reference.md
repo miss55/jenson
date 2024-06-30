@@ -46,6 +46,10 @@ categories: common
 1. [React](https://wangchujiang.com/reference/docs/react.html)
 1. [React Router](https://wangchujiang.com/reference/docs/reactrouter.html)
 1. [less](https://wangchujiang.com/reference/docs/lessjs.html)
+1. [semantic-ui](https://semantic-ui.com/)
+1. [react-bootstrap](https://react-bootstrap.netlify.app/docs/getting-started/introduction)
+1. [theme semantic-ui-forest](https://semantic-ui-forest.com/)
+1. [primereact](https://primereact.org/)
 
 ### 工具
 
@@ -136,7 +140,7 @@ categories: common
 1. [GitLab 键盘快捷键](https://wangchujiang.com/reference/docs/gitlab.html)
 1. [PyCharm 键盘快捷键](https://wangchujiang.com/reference/docs/pycharm.html)
 
-### AI相关
+### AI相关 大模型
 
 1. [AI工具集](https://ai-bot.cn/)
 1. [当下热门的开源AI大模型全梳理](https://juejin.cn/post/7237240999243071525)
@@ -145,6 +149,14 @@ categories: common
 1. [中文语言理解测评基准](https://www.cluebenchmarks.com/)
 1. [llama.cpp](https://github.com/ggerganov/llama.cpp)
 1. [llama](https://github.com/facebookresearch/llama)
+1. [lmsys对模型进行盲测投票，也可以查看榜单](https://chat.lmsys.org)
+
+### 软route
+
+1. openWrt
+1. pfSense
+1. Mikrotik RouterOS
+1. IKuai
 
 ### 其他
 
