@@ -60,6 +60,7 @@ categories: common
 1. [xhprof](https://github.com/longxinH/xhprof)
 1. [tideways-xhprof](https://tideways.com/profiler/xhprof-for-php7)
 1. [jetbrains toolbox](https://www.jetbrains.com/toolbox-app/)
+1. [30aitool](https://www.30aitool.com/)
 
 ### 常用命令
 
