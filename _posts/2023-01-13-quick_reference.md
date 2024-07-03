@@ -62,6 +62,13 @@ categories: common
 1. [jetbrains toolbox](https://www.jetbrains.com/toolbox-app/)
 1. [30aitool](https://www.30aitool.com/)
 
+### 测试
+
+1. 测试视频
+   - [10秒 mp4](https://www.runoob.com/try/demo_source/movie.mp4)
+   - [52秒 mp4](http://vjs.zencdn.net/v/oceans.mp4)
+
+
 ### 常用命令
 
 1. [命令行的艺术](https://github.com/jlevy/the-art-of-command-line/blob/master/README-zh.md)
