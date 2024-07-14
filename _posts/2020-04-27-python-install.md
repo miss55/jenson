@@ -27,6 +27,8 @@ categories: backend
     | ```--specpath DIR```|用于存储生成的规范文件的文件夹（默认：当前目录） |
     | ```-n NAME, --name NAME```|应用程序名称 |
 
+  * 示例： `pyinstaller --onefile  --clean ./myscript.py`
+
 * <img src="/static/img/pyinstall.jpg" alt="pyinstaller打包后运行示例">
 
 * 参考
