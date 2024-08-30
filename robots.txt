@@ -2,4 +2,4 @@
 User-agent: *
 Disallow: 
 Disallow: /bin/
-Sitemap: http://www.wenyisong.cn/sitemap.xml
+Sitemap: http://blog.wenyisong.cn/sitemap.xml
