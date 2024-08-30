@@ -6,7 +6,7 @@ categories: frontend
 ---
 
 - TOC
-  {:toc}
+{:toc}
 
 # Taro React 版微信小程序路由最佳实践
 
