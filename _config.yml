@@ -39,8 +39,8 @@ gitment:
     client_id: 7baa6de266c15f33620b
     client_secret: 062a9145340a528913deaaff504ba9721fe2f120
 
-url: "https://blog.wenyisong.cn"
-imgrepo: "https://blog.wenyisong.cn/static/img"
+url: "https://www.wenyisong.cn"
+imgrepo: "https://www.wenyisong.cn/static/img"
 
 # url: "https://miss55.github.io/jenson"
 # imgrepo: "https://miss55.github.io/jenson/static/img"
